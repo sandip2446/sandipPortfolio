@@ -558,7 +558,20 @@ What specific area would you like to learn more about? 😊`
         return greetingResponses.howAreYou[Math.floor(Math.random() * greetingResponses.howAreYou.length)];
     }
     if (topic === 'contact') {
-        return greetingResponses.contact;
+        return `I'd love to connect with you! Here's how you can reach out:
+
+• 📧 Email: sandip2446@gmail.com
+• 💼 LinkedIn: linkedin.com/in/sandip2446
+• 💻 GitHub: github.com/sandip2446
+• 📍 Location: Welland, ON, Canada
+
+I'm available for:
+• Full-time positions
+• Remote opportunities
+• Contract work
+• Immediate start
+
+Feel free to reach out through any of these channels. I'm always excited to discuss new opportunities and collaborations! 😊`;
     }
 
     // Default response for unknown topics
@@ -932,7 +945,7 @@ Would you like to know more about any specific feature or see how it's implement
 
 function generateProjectResponse(project) {
     const projectDetails = {
-        hospital: `The Hospital Management System is one of Sandip's most exciting projects! 🏥
+        hospital: `The Hospital Management System is one of my most exciting projects! 🏥
 
 It's like having a super-smart digital assistant for hospitals. The system makes it super easy for patients to register online and book appointments. It even sends automatic reminders through email and SMS, which helps reduce no-shows by 25%!
 
@@ -1073,7 +1086,7 @@ Technical Implementation:
 Would you like to know more about how it works or how it's helping businesses? I can tell you about specific features or the technical implementation! 😊`
     };
 
-    return projectDetails[project] || `I'd be happy to tell you about Sandip's experience with ${project}! What would you like to know? 😊`;
+    return projectDetails[project] || `I'd be happy to tell you about my experience with ${project}! What would you like to know? 😊`;
 }
 
 function generateOverviewResponse() {
@@ -1089,7 +1102,7 @@ Would you like to know more about any of his projects or skills? I can tell you 
 }
 
 function generateRecentProjectsResponse() {
-    return `Let me tell you about Sandip's recent projects from 2023:
+    return `Let me tell you about my recent projects from 2023:
 
 1. **Gym Management System**
    - Member portal and class scheduling
@@ -1112,13 +1125,13 @@ function generateRecentProjectsResponse() {
    - Automated customer communication
    - Features RESTful API design
 
-Each project demonstrates Sandip's expertise in:
+Each project demonstrates my expertise in:
 - Enterprise application development
 - Database design and optimization
 - Security implementation
 - Automated workflow creation
 
-Would you like to know more about any specific project or aspect?`;
+Would you like to know more about any specific project or aspect? 😊`;
 }
 
 function generateTechnicalSkillsResponse() {
@@ -1874,15 +1887,42 @@ const hints = {
             questions: [
                 {
                     text: "What's your current role and expertise?",
-                    response: "I'm a Full Stack .NET Developer with expertise in:\n• Enterprise application development\n• ASP.NET Core MVC & Web API\n• Entity Framework Core\n• SQL Server & SQLite\n• RESTful API Design\n• Modern frontend technologies"
+                    response: `I'm a Full Stack .NET Developer with expertise in:
+
+• Enterprise application development
+• ASP.NET Core MVC & Web API
+• Entity Framework Core
+• SQL Server & SQLite
+• RESTful API Design
+• Modern frontend technologies
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What's your educational background?",
-                    response: "I'm currently pursuing:\n• Computer Programming Diploma at Niagara College\n• Expected graduation: 2025\n• Key coursework includes:\n  - ASP.NET Core Development\n  - Database Management Systems\n  - Web Development & Design\n  - Software Engineering Principles"
+                    response: `I'm currently pursuing:
+
+• Computer Programming Diploma at Niagara College
+• Expected graduation: 2025
+• Key coursework includes:
+  - ASP.NET Core Development
+  - Database Management Systems
+  - Web Development & Design
+  - Software Engineering Principles
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What are your key achievements?",
-                    response: "My key achievements include:\n• Developed 4 comprehensive management systems\n• Implemented Canadian AAA accessibility standards\n• Mastered full-stack development\n• Delivered complex projects with advanced features\n• Created reusable components and solutions"
+                    response: `My key achievements include:
+
+• Developed 4 comprehensive management systems
+• Implemented Canadian AAA accessibility standards
+• Mastered full-stack development
+• Delivered complex projects with advanced features
+• Created reusable components and solutions
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 }
             ]
         },
@@ -1891,15 +1931,39 @@ const hints = {
             questions: [
                 {
                     text: "What are your core technical skills?",
-                    response: "My core technical skills include:\n• Backend: ASP.NET Core MVC, Entity Framework Core\n• Database: SQL Server, SQLite, Database Design\n• Frontend: HTML5, CSS3, JavaScript\n• Architecture: RESTful APIs, Microservices\n• Tools: Git, Visual Studio, Azure DevOps"
+                    response: `My core technical skills include:
+
+• Backend: ASP.NET Core MVC, Entity Framework Core
+• Database: SQL Server, SQLite, Database Design
+• Frontend: HTML5, CSS3, JavaScript
+• Architecture: RESTful APIs, Microservices
+• Tools: Git, Visual Studio, Azure DevOps
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "What development methodologies do you follow?",
-                    response: "I follow these methodologies:\n• Agile Development practices\n• Test-Driven Development (TDD)\n• Clean Code principles\n• SOLID principles\n• Continuous Integration/Deployment"
+                    response: `I follow these methodologies:
+
+• Agile Development practices
+• Test-Driven Development (TDD)
+• Clean Code principles
+• SOLID principles
+• Continuous Integration/Deployment
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "How do you handle project challenges?",
-                    response: "I approach challenges by:\n• Breaking down complex problems\n• Following best practices and patterns\n• Implementing robust error handling\n• Writing maintainable, documented code\n• Ensuring scalability and performance"
+                    response: `I approach challenges by:
+
+• Breaking down complex problems
+• Following best practices and patterns
+• Implementing robust error handling
+• Writing maintainable, documented code
+• Ensuring scalability and performance
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 }
             ]
         },
@@ -1908,15 +1972,39 @@ const hints = {
             questions: [
                 {
                     text: "What are your career objectives?",
-                    response: "My career objectives include:\n• Contributing to impactful enterprise solutions\n• Continuous learning and skill development\n• Taking on leadership opportunities\n• Building innovative applications\n• Making a positive impact in the tech industry"
+                    response: `My career objectives include:
+
+• Contributing to impactful enterprise solutions
+• Continuous learning and skill development
+• Taking on leadership opportunities
+• Building innovative applications
+• Making a positive impact in the tech industry
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What type of role are you seeking?",
-                    response: "I'm seeking roles that offer:\n• Full Stack development opportunities\n• Challenging technical problems\n• Collaborative team environment\n• Modern technology stack\n• Clear growth and learning path"
+                    response: `I'm seeking roles that offer:
+
+• Full Stack development opportunities
+• Challenging technical problems
+• Collaborative team environment
+• Modern technology stack
+• Clear growth and learning path
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What makes you a strong candidate?",
-                    response: "My strengths include:\n• Strong problem-solving abilities\n• Excellent communication skills\n• Quick learning and adaptation\n• Focus on clean, maintainable code\n• Proven track record of successful projects"
+                    response: `My strengths include:
+
+• Strong problem-solving abilities
+• Excellent communication skills
+• Quick learning and adaptation
+• Focus on clean, maintainable code
+• Proven track record of successful projects
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 }
             ]
         }
@@ -2196,15 +2284,37 @@ const hints = {
             questions: [
                 {
                     text: "What types of positions are you looking for?",
-                    response: "I'm open to various opportunities:\n• Full Stack .NET Developer roles\n• Enterprise Application Developer positions\n• Software Engineer opportunities\n• Technical Lead positions\n• Remote and on-site roles"
+                    response: `I'm open to various opportunities:
+
+• Full Stack .NET Developer roles
+• Enterprise Application Developer positions
+• Software Engineer opportunities
+• Technical Lead positions
+• Remote and on-site roles
+
+Would you like to know more about my experience or specific skills? 😊`
                 },
                 {
                     text: "What are your salary expectations?",
-                    response: "I'm looking for competitive compensation:\n• Based on market rates for Full Stack .NET Developers\n• Commensurate with experience and role\n• Open to negotiation based on benefits and opportunities\n• Considering total compensation package"
+                    response: `I'm looking for competitive compensation:
+
+• Based on market rates for Full Stack .NET Developers
+• Commensurate with experience and role
+• Open to negotiation based on benefits and opportunities
+• Considering total compensation package
+
+Would you like to know more about my experience or specific skills? 😊`
                 },
                 {
                     text: "What's your preferred work environment?",
-                    response: "I'm flexible with work arrangements:\n• Open to both remote and on-site positions\n• Prefer collaborative team environments\n• Looking for companies with growth opportunities\n• Interested in organizations with modern tech stacks"
+                    response: `I'm flexible with work arrangements:
+
+• Open to both remote and on-site positions
+• Prefer collaborative team environments
+• Looking for companies with growth opportunities
+• Interested in organizations with modern tech stacks
+
+Would you like to know more about my experience or specific skills? 😊`
                 }
             ]
         },
@@ -2213,15 +2323,39 @@ const hints = {
             questions: [
                 {
                     text: "What's your current experience level?",
-                    response: "My experience includes:\n• Full Stack .NET Development\n• Enterprise application development\n• Multiple successful project implementations\n• Strong foundation in modern technologies\n• Proven track record of delivering solutions"
+                    response: `My experience includes:
+
+• Full Stack .NET Development
+• Enterprise application development
+• Multiple successful project implementations
+• Strong foundation in modern technologies
+• Proven track record of delivering solutions
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What are your key technical skills?",
-                    response: "My technical expertise includes:\n• ASP.NET Core MVC & Web API\n• Entity Framework Core\n• SQL Server & SQLite\n• RESTful API Design\n• Modern frontend technologies"
+                    response: `My technical expertise includes:
+
+• ASP.NET Core MVC & Web API
+• Entity Framework Core
+• SQL Server & SQLite
+• RESTful API Design
+• Modern frontend technologies
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What makes you a strong candidate?",
-                    response: "My strengths include:\n• Proven project success record\n• Strong problem-solving abilities\n• Excellent communication skills\n• Quick learning and adaptation\n• Focus on clean, maintainable code"
+                    response: `My strengths include:
+
+• Proven project success record
+• Strong problem-solving abilities
+• Excellent communication skills
+• Quick learning and adaptation
+• Focus on clean, maintainable code
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 }
             ]
         },
@@ -2230,15 +2364,39 @@ const hints = {
             questions: [
                 {
                     text: "What are your career objectives?",
-                    response: "My career goals include:\n• Contributing to impactful projects\n• Continuous learning and growth\n• Taking on leadership opportunities\n• Building innovative solutions\n• Making a positive impact"
+                    response: `My career goals include:
+
+• Contributing to impactful projects
+• Continuous learning and growth
+• Taking on leadership opportunities
+• Building innovative solutions
+• Making a positive impact
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What type of company are you looking for?",
-                    response: "I'm interested in companies that:\n• Value innovation and quality\n• Offer growth opportunities\n• Have a strong technical culture\n• Focus on employee development\n• Build meaningful products"
+                    response: `I'm interested in companies that:
+
+• Value innovation and quality
+• Offer growth opportunities
+• Have a strong technical culture
+• Focus on employee development
+• Build meaningful products
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 },
                 {
                     text: "What's your ideal role?",
-                    response: "My ideal role would involve:\n• Full Stack development opportunities\n• Challenging technical problems\n• Collaborative team environment\n• Modern technology stack\n• Clear growth path"
+                    response: `My ideal role would involve:
+
+• Full Stack development opportunities
+• Challenging technical problems
+• Collaborative team environment
+• Modern technology stack
+• Clear growth path
+
+Would you like to know more about my specific projects or technical skills? 😊`
                 }
             ]
         }
@@ -2249,15 +2407,42 @@ const hints = {
             questions: [
                 {
                     text: "What enterprise technologies do you specialize in?",
-                    response: "I specialize in enterprise technologies including:\n• ASP.NET Core MVC & Web API for robust backend development\n• Entity Framework Core for efficient data management\n• SQL Server & SQLite for database solutions\n• RESTful API Design for scalable services\n• CRM System Development for customer management\n• ERP System Integration for business processes"
+                    response: `I specialize in enterprise technologies including:
+
+• ASP.NET Core MVC & Web API for robust backend development
+• Entity Framework Core for efficient data management
+• SQL Server & SQLite for database solutions
+• RESTful API Design for scalable services
+• CRM System Development for customer management
+• ERP System Integration for business processes
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "How do you handle complex enterprise features?",
-                    response: "I handle complex enterprise features through:\n• Master-detail architecture implementation\n• Role-based security and access control\n• Automated workflow systems\n• Real-time data synchronization\n• Comprehensive error handling\n• Performance optimization techniques"
+                    response: `I handle complex enterprise features through:
+
+• Master-detail architecture implementation
+• Role-based security and access control
+• Automated workflow systems
+• Real-time data synchronization
+• Comprehensive error handling
+• Performance optimization techniques
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "What's your approach to enterprise security?",
-                    response: "My security approach includes:\n• Role-based access control (RBAC)\n• Data encryption and protection\n• Secure authentication methods\n• Input validation and sanitization\n• Audit logging and monitoring\n• Compliance with security standards"
+                    response: `My security approach includes:
+
+• Role-based access control (RBAC)
+• Data encryption and protection
+• Secure authentication methods
+• Input validation and sanitization
+• Audit logging and monitoring
+• Compliance with security standards
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 }
             ]
         },
@@ -2266,15 +2451,42 @@ const hints = {
             questions: [
                 {
                     text: "What business solutions have you implemented?",
-                    response: "I've implemented various business solutions including:\n• Business Analytics dashboards\n• Workflow Automation systems\n• Document Management solutions\n• Role-Based Security frameworks\n• Real-time Synchronization systems\n• Custom Reporting tools"
+                    response: `I've implemented various business solutions including:
+
+• Business Analytics dashboards
+• Workflow Automation systems
+• Document Management solutions
+• Role-Based Security frameworks
+• Real-time Synchronization systems
+• Custom Reporting tools
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "How do you ensure business requirements are met?",
-                    response: "I ensure business requirements through:\n• Detailed requirement analysis\n• Regular stakeholder communication\n• Agile development methodology\n• Continuous testing and validation\n• User feedback integration\n• Performance monitoring"
+                    response: `I ensure business requirements through:
+
+• Detailed requirement analysis
+• Regular stakeholder communication
+• Agile development methodology
+• Continuous testing and validation
+• User feedback integration
+• Performance monitoring
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "What makes your business solutions effective?",
-                    response: "My business solutions are effective because they:\n• Focus on user experience and efficiency\n• Implement automated workflows\n• Provide real-time insights and analytics\n• Ensure data accuracy and reliability\n• Scale with business growth\n• Maintain high performance standards"
+                    response: `My business solutions are effective because they:
+
+• Focus on user experience and efficiency
+• Implement automated workflows
+• Provide real-time insights and analytics
+• Ensure data accuracy and reliability
+• Scale with business growth
+• Maintain high performance standards
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 }
             ]
         },
@@ -2283,15 +2495,42 @@ const hints = {
             questions: [
                 {
                     text: "What frontend technologies do you use?",
-                    response: "I use modern frontend technologies including:\n• HTML5 & CSS3 for structure and styling\n• JavaScript for interactive features\n• .NET MAUI for cross-platform development\n• Responsive design principles\n• Modern UI/UX practices\n• Progressive enhancement"
+                    response: `I use modern frontend technologies including:
+
+• HTML5 & CSS3 for structure and styling
+• JavaScript for interactive features
+• .NET MAUI for cross-platform development
+• Responsive design principles
+• Modern UI/UX practices
+• Progressive enhancement
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "How do you implement accessibility?",
-                    response: "I implement accessibility through:\n• AAA Standards compliance\n• Keyboard navigation support\n• Screen reader compatibility\n• Color contrast optimization\n• ARIA implementation\n• Semantic HTML structure"
+                    response: `I implement accessibility through:
+
+• AAA Standards compliance
+• Keyboard navigation support
+• Screen reader compatibility
+• Color contrast optimization
+• ARIA implementation
+• Semantic HTML structure
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 },
                 {
                     text: "What's your approach to responsive design?",
-                    response: "My responsive design approach includes:\n• Mobile-first development\n• Flexible grid systems\n• Adaptive layouts\n• Touch-friendly interfaces\n• Performance optimization\n• Cross-browser compatibility"
+                    response: `My responsive design approach includes:
+
+• Mobile-first development
+• Flexible grid systems
+• Adaptive layouts
+• Touch-friendly interfaces
+• Performance optimization
+• Cross-browser compatibility
+
+Would you like to know more about my specific implementations or project examples? 😊`
                 }
             ]
         }
@@ -2314,6 +2553,7 @@ function showFloatingHints(topic) {
     // Create hints container
     const hintContainer = document.createElement('div');
     hintContainer.className = 'floating-hints';
+    hintContainer.style.opacity = '0'; // Start with opacity 0
 
     // Create hint content
     const hintContent = document.createElement('div');
@@ -2327,7 +2567,8 @@ function showFloatingHints(topic) {
     Object.entries(topicHints).forEach(([category, data], index) => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'hint-category';
-        categoryDiv.style.animationDelay = `${index * 0.1}s`;
+        categoryDiv.style.opacity = '0'; // Start with opacity 0
+        categoryDiv.style.transform = 'translateY(20px)'; // Start slightly below
 
         // Add category title
         const categoryTitle = document.createElement('h4');
@@ -2343,14 +2584,22 @@ function showFloatingHints(topic) {
             listItem.className = 'hint-item';
             listItem.textContent = question.text;
             listItem.addEventListener('click', () => {
-                addMessage(question.response);
+                // Show typing indicator
+                const typingIndicator = showTypingIndicator();
+                
+                // Remove current hints
                 hintContainer.remove();
-                // Scroll to bottom when a hint is clicked
-                chatContent.scrollTop = chatContent.scrollHeight;
-                // Show hints again after a short delay
+                
+                // Add response after a short delay
                 setTimeout(() => {
-                    showFloatingHints(topic);
-                }, 500);
+                    removeTypingIndicator(typingIndicator);
+                    addMessage(question.response);
+                    
+                    // Show hints again after response
+                    setTimeout(() => {
+                        showFloatingHints(topic);
+                    }, 1500); // 1.5 second delay before showing hints again
+                }, 1000); // 1 second delay before showing response
             });
             questionList.appendChild(listItem);
         });
@@ -2360,6 +2609,22 @@ function showFloatingHints(topic) {
 
     hintContainer.appendChild(hintContent);
     chatContent.appendChild(hintContainer);
+
+    // Add animation with delay
+    setTimeout(() => {
+        hintContainer.style.opacity = '1';
+        hintContainer.style.transition = 'opacity 0.5s ease-out';
+
+        // Animate each category with staggered delay
+        const categories = hintContainer.querySelectorAll('.hint-category');
+        categories.forEach((category, index) => {
+            setTimeout(() => {
+                category.style.opacity = '1';
+                category.style.transform = 'translateY(0)';
+                category.style.transition = 'all 0.5s ease-out';
+            }, index * 200); // 200ms delay between each category
+        });
+    }, 1000); // 1 second delay before starting animations
 }
 
 // Add CSS for the hint toggle button
@@ -2395,7 +2660,6 @@ hintToggleStyle.textContent = `
     .floating-hints {
         position: relative;
         margin: 10px 0;
-        animation: slideIn 0.5s ease-out;
         background: #f8fafc;
         border-radius: 8px;
         padding: 15px;
@@ -2413,7 +2677,6 @@ hintToggleStyle.textContent = `
 
     .hint-category {
         margin-bottom: 15px;
-        animation: fadeIn 0.5s ease-out;
     }
 
     .hint-category-title {
