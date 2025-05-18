@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dynamic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="logo"><i class="fas fa-user-astronaut"></i> MyPortfolio</div>
+        <ul class="nav-links">
+            <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <div id="animated-bg"></div>
+    <div class="background-elements">
+        <i class="fas fa-code floating-icon"></i>
+        <i class="fas fa-database floating-icon"></i>
+        <i class="fas fa-laptop-code floating-icon"></i>
+        <i class="fas fa-server floating-icon"></i>
+        <i class="fas fa-mobile-alt floating-icon"></i>
+        <i class="fas fa-cloud floating-icon"></i>
+        <i class="fab fa-js floating-icon"></i>
+        <i class="fab fa-html5 floating-icon"></i>
+        <i class="fab fa-css3-alt floating-icon"></i>
+        <i class="fab fa-python floating-icon"></i>
+        <i class="fab fa-github floating-icon"></i>
+        <i class="fas fa-terminal floating-icon"></i>
+        <i class="fas fa-bug floating-icon"></i>
+        <i class="fas fa-code-branch floating-icon"></i>
+        <i class="fas fa-file-code floating-icon"></i>
+        <div class="doodle"></div>
+        <div class="doodle"></div>
+        <div class="doodle"></div>
+        <div class="doodle"></div>
+        <div class="doodle"></div>
+        <div class="doodle"></div>
+        <div class="zigzag"></div>
+        <div class="zigzag"></div>
+        <div class="zigzag"></div>
+    </div>
+    <main id="main-content">
+        <section id="hero"></section>
+        <section id="about"></section>
+        <section id="skills"></section>
+        <section id="projects"></section>
+        <section id="contact"></section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div class="floating-chat-widget">
+        <button class="chat-toggle" aria-label="Toggle chat">
+            <i class="fas fa-robot"></i>
+            <span class="notification-badge">1</span>
+        </button>
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chat-header-text">
+                        <h3>AI Assistant</h3>
+                        <span class="chat-status">Online</span>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="chat-action-btn minimize-chat" title="Minimize" aria-label="Minimize chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="chat-action-btn close-chat" title="Close" aria-label="Close chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="chat-content">
+                <div class="chat-date-divider">
+                    <span>Today</span>
+                </div>
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        <p>Hi! I'm your AI assistant. I can help you understand Sandip's expertise in:</p>
+                        <div class="expertise-options">
+                            <button class="expertise-btn" data-type="overview">
+                                <i class="fas fa-info-circle"></i> Overview
+                            </button>
+                            <button class="expertise-btn" data-type="crm">
+                                <i class="fas fa-users"></i> CRM System
+                            </button>
+                            <button class="expertise-btn" data-type="erp">
+                                <i class="fas fa-building"></i> ERP System
+                            </button>
+                            <button class="expertise-btn" data-type="ecommerce">
+                                <i class="fas fa-shopping-cart"></i> E-commerce
+                            </button>
+                            <button class="expertise-btn" data-type="website">
+                                <i class="fas fa-globe"></i> Website
+                            </button>
+                            <button class="expertise-btn" data-type="inventory">
+                                <i class="fas fa-boxes"></i> Inventory
+                            </button>
+                            <button class="expertise-btn" data-type="pos">
+                                <i class="fas fa-cash-register"></i> POS System
+                            </button>
+                            <button class="expertise-btn" data-type="skills">
+                                <i class="fas fa-code"></i> Technical Skills
+                            </button>
+                        </div>
+                    </div>
+                    <div class="message-time">12:00 PM</div>
+                </div>
+                <div class="chat-messages"></div>
+                <button class="scroll-to-top" aria-label="Scroll to top">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" placeholder="Type a message..."
+                        aria-label="Chat message input">
+                    <button class="send-message" aria-label="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
