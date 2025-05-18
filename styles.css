@@ -2352,25 +2352,181 @@ p {
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
     .chat-container {
-        width: calc(100vw - 2rem);
-        height: calc(100vh - 150px);
-        max-height: calc(100vh - 150px);
-        bottom: 70px;
-        right: 1rem;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        position: fixed;
     }
-    
+
+    .chat-container.active {
+        transform: translateY(0);
+    }
+
+    .chat-header {
+        padding: 12px;
+        border-radius: 0;
+    }
+
+    .chat-content {
+        height: calc(100% - 140px);
+        padding: 12px;
+    }
+
+    .message-content {
+        max-width: 85%;
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .chat-input-wrapper {
+        padding: 8px;
+        border-radius: 0;
+    }
+
+    .chat-input {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .send-message {
+        width: 36px;
+        height: 36px;
+    }
+
+    .expertise-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .expertise-btn {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chat-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .chat-header {
+        padding: 10px;
+    }
+
+    .chat-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .chat-header-text h3 {
+        font-size: 1rem;
+    }
+
+    .chat-content {
+        height: calc(100% - 130px);
+        padding: 10px;
+    }
+
+    .message-content {
+        max-width: 90%;
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .chat-input-wrapper {
+        padding: 6px;
+    }
+
+    .chat-input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .send-message {
+        width: 32px;
+        height: 32px;
+    }
+
     .expertise-options {
         grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 6px;
     }
-    
-    .message-content {
+
+    .expertise-btn {
+        padding: 10px;
         font-size: 0.9rem;
-        padding: 0.7rem 0.9rem;
-        max-width: 90%;
     }
-    
+
+    .message-time {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .chat-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .chat-header {
+        padding: 8px;
+    }
+
+    .chat-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .chat-header-text h3 {
+        font-size: 0.9rem;
+    }
+
+    .chat-content {
+        height: calc(100% - 120px);
+        padding: 8px;
+    }
+
+    .message-content {
+        max-width: 95%;
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+
     .chat-input-wrapper {
-        padding: 0.6rem 1rem;
+        padding: 4px;
+    }
+
+    .chat-input {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+
+    .send-message {
+        width: 28px;
+        height: 28px;
+    }
+
+    .expertise-options {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .expertise-btn {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .message-time {
+        font-size: 0.65rem;
     }
 }
 
