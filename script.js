@@ -36,7 +36,7 @@ document.getElementById('hero').innerHTML = `
 document.getElementById('about').innerHTML = `
   <div class="dynamic-card">
     <h2><i class="fas fa-user"></i> About Me</h2>
-    <p class="profile-highlight">Full Stack .NET Developer with proven expertise in building enterprise-grade applications and cross-platform solutions. Demonstrated success in developing four comprehensive management systems using ASP.NET Core MVC, implementing complex features including master-detail relationships, role-based security, and automated workflows.</p>
+    <p class="profile-highlight">Full Stack .NET Developer with proven expertise in building enterprise-grade applications and cross-platform solutions. Demonstrated success in developing four comprehensive management systems using ASP.NET Core MVC, implementing complex features including master-detail relationships, role-based security, and automated workflows. Strong foundation in both backend and frontend technologies, with additional expertise in data science and analytics.</p>
     
     <div class="expertise-grid">
       <div class="expertise-item">
@@ -96,28 +96,34 @@ document.getElementById('skills').innerHTML = `
     <h2><i class="fas fa-code"></i> Technical Expertise</h2>
     <div class="skills-flex">
       <div class="skill-category">
-        <h3>Backend & Enterprise Development</h3>
+        <h3>Enterprise Development</h3>
         <ul>
           <li><i class="fab fa-microsoft"></i> ASP.NET Core MVC & Web API</li>
           <li><i class="fas fa-database"></i> Entity Framework Core</li>
           <li><i class="fas fa-server"></i> SQL Server & SQLite</li>
           <li><i class="fas fa-plug"></i> RESTful API Design</li>
+          <li><i class="fas fa-users"></i> CRM System Development</li>
+          <li><i class="fas fa-building"></i> ERP System Integration</li>
         </ul>
       </div>
       <div class="skill-category">
-        <h3>Frontend & Cross-Platform</h3>
+        <h3>Business Solutions</h3>
+        <ul>
+          <li><i class="fas fa-chart-line"></i> Business Analytics</li>
+          <li><i class="fas fa-tasks"></i> Workflow Automation</li>
+          <li><i class="fas fa-file-invoice"></i> Document Management</li>
+          <li><i class="fas fa-user-shield"></i> Role-Based Security</li>
+          <li><i class="fas fa-sync"></i> Real-time Synchronization</li>
+          <li><i class="fas fa-chart-bar"></i> Custom Reporting</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Frontend & Accessibility</h3>
         <ul>
           <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
           <li><i class="fab fa-js"></i> JavaScript</li>
           <li><i class="fab fa-microsoft"></i> .NET MAUI</li>
-          <li><i class="fab fa-windows"></i> UWP Applications</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>Accessibility & Standards</h3>
-        <ul>
-          <li><i class="fas fa-universal-access"></i> Canadian AAA Standards</li>
-          <li><i class="fas fa-check-circle"></i> WCAG 2.1 Guidelines</li>
+          <li><i class="fas fa-universal-access"></i> AAA Standards</li>
           <li><i class="fas fa-keyboard"></i> Keyboard Navigation</li>
           <li><i class="fas fa-eye"></i> Color Contrast</li>
         </ul>
@@ -346,7 +352,7 @@ function processUserInput(input) {
     setTimeout(() => {
         removeTypingIndicator(typingIndicator);
         addMessage(response);
-        // Show hints after response
+        // Show hints directly after response
         showFloatingHints(topic);
     }, 1000);
 }
@@ -397,7 +403,148 @@ I'm available for:
 Feel free to reach out through any of these channels. I'm always excited to discuss new opportunities and collaborations! 😊`
     };
 
-    // Handle greetings and farewells
+    // General question templates
+    const generalTemplates = {
+        time: [
+            "⏰ The current time is " + new Date().toLocaleTimeString() + ". Is there anything specific about Sandip's work you'd like to know?",
+            "⏰ It's " + new Date().toLocaleTimeString() + ". Would you like to learn about Sandip's projects or expertise?"
+        ],
+        date: [
+            "📅 Today is " + new Date().toLocaleDateString() + ". Would you like to know about Sandip's recent projects?",
+            "📅 It's " + new Date().toLocaleDateString() + ". I can tell you about Sandip's work if you're interested!"
+        ],
+        weather: [
+            "🌤️ I'm focused on telling you about Sandip's work as a Full Stack .NET Developer. Would you like to know about his projects?",
+            "🌤️ While I can't check the weather, I can tell you about Sandip's expertise in enterprise solutions!"
+        ],
+        name: [
+            "👋 I'm an AI assistant here to tell you about Sandip Acharya, a Full Stack .NET Developer. Would you like to know about his work?",
+            "👋 I'm here to share information about Sandip Acharya's portfolio and projects. What would you like to know?"
+        ],
+        age: [
+            "🎂 I'm here to discuss Sandip's professional experience and projects. Would you like to know about his technical expertise?",
+            "🎂 Let me tell you about Sandip's work as a Full Stack .NET Developer instead!"
+        ],
+        location: [
+            "📍 Sandip is based in Welland, ON, Canada. He's available for remote and local opportunities. Would you like to know more about his work?",
+            "📍 Sandip works from Welland, ON, Canada, and is open to both remote and on-site positions. Shall I tell you about his projects?"
+        ],
+        education: [
+            "🎓 Sandip is pursuing a Computer Programming Diploma at Niagara College, expected to graduate in 2025. Would you like to know about his projects?",
+            "🎓 Sandip is studying at Niagara College, focusing on Computer Programming. I can tell you about his technical skills and projects!"
+        ],
+        experience: [
+            "💼 Sandip has developed 4 comprehensive management systems and implemented Canadian AAA accessibility standards. Would you like to know more?",
+            "💼 Sandip has extensive experience in enterprise application development. Shall I tell you about his recent projects?"
+        ],
+        skills: [
+            `🛠️ Let me tell you about Sandip's technical expertise:
+
+1. **Enterprise Development**
+   • ASP.NET Core MVC & Web API
+   • Entity Framework Core
+   • SQL Server & SQLite
+   • RESTful API Design
+   • CRM System Development
+   • ERP System Integration
+
+2. **Business Solutions**
+   • Business Analytics
+   • Workflow Automation
+   • Document Management
+   • Role-Based Security
+   • Real-time Synchronization
+   • Custom Reporting
+
+3. **Frontend & Accessibility**
+   • HTML5 & CSS3
+   • JavaScript
+   • .NET MAUI
+   • AAA Standards
+   • Keyboard Navigation
+   • Color Contrast
+
+Would you like to know more about any specific skill set? 😊`,
+            `🛠️ Here's an overview of Sandip's technical skills:
+
+1. **Enterprise Development**
+   • ASP.NET Core MVC & Web API
+   • Entity Framework Core
+   • SQL Server & SQLite
+   • RESTful API Design
+   • CRM System Development
+   • ERP System Integration
+
+2. **Business Solutions**
+   • Business Analytics
+   • Workflow Automation
+   • Document Management
+   • Role-Based Security
+   • Real-time Synchronization
+   • Custom Reporting
+
+3. **Frontend & Accessibility**
+   • HTML5 & CSS3
+   • JavaScript
+   • .NET MAUI
+   • AAA Standards
+   • Keyboard Navigation
+   • Color Contrast
+
+What specific area would you like to learn more about? 😊`
+        ],
+        projects: [
+            "🚀 Sandip has built Hospital, Gym, School, and CRM Management Systems. Would you like to know about any specific project?",
+            "🚀 Sandip's projects include enterprise solutions with advanced features. Shall I tell you about them?"
+        ],
+        availability: [
+            "✅ Sandip is available for full-time positions, remote opportunities, and contract work. Would you like to know more about his work?",
+            "✅ Sandip is open to new opportunities and can start immediately. Shall I tell you about his expertise?"
+        ],
+        salary: [
+            "💰 Sandip's compensation expectations are competitive and based on market rates. Would you like to know about his skills and experience?",
+            "💰 Sandip is open to discussing compensation based on the role and benefits. Shall I tell you about his expertise?"
+        ],
+        remote: [
+            "🌐 Yes, Sandip is available for remote work! Would you like to know about his experience with distributed teams?",
+            "🌐 Sandip is comfortable working remotely and has experience with remote collaboration tools. Shall I tell you more?"
+        ],
+        languages: [
+            "💬 Sandip is fluent in English and works with programming languages like C#, JavaScript, and SQL. Would you like to know about his technical skills?",
+            "💬 Sandip communicates in English and is proficient in multiple programming languages. Shall I tell you about his expertise?"
+        ],
+        tools: [
+            "🛠️ Sandip uses Visual Studio, Git, Azure DevOps, and other modern development tools. Would you like to know about his technical stack?",
+            "🛠️ Sandip is proficient with various development tools and technologies. Shall I tell you about his technical expertise?"
+        ],
+        methodology: [
+            "📋 Sandip follows Agile development practices and clean code principles. Would you like to know about his development approach?",
+            "📋 Sandip uses modern development methodologies and best practices. Shall I tell you about his work process?"
+        ],
+        team: [
+            "👥 Sandip is a team player with experience in collaborative development. Would you like to know about his project experience?",
+            "👥 Sandip works well in teams and has experience with various team structures. Shall I tell you about his collaborations?"
+        ],
+        challenges: [
+            "🎯 Sandip has successfully implemented complex features and solved challenging technical problems. Would you like to know about specific examples?",
+            "🎯 Sandip has overcome various technical challenges in his projects. Shall I tell you about his problem-solving approach?"
+        ],
+        future: [
+            "🔮 Sandip is focused on continuous learning and taking on new challenges. Would you like to know about his career goals?",
+            "🔮 Sandip is always looking to grow and take on new opportunities. Shall I tell you about his aspirations?"
+        ],
+        hobbies: [
+            "🎨 While I'm here to discuss Sandip's professional work, I can tell you about his technical projects and achievements!",
+            "🎨 I'm focused on sharing information about Sandip's work as a Full Stack .NET Developer. Would you like to know about his projects?"
+        ]
+    };
+
+    // Handle general templates
+    if (generalTemplates[topic]) {
+        return generalTemplates[topic][Math.floor(Math.random() * generalTemplates[topic].length)];
+    }
+
+    // Handle existing greeting responses
     if (topic === 'greeting') {
         return greetingResponses.greeting[Math.floor(Math.random() * greetingResponses.greeting.length)];
     }
@@ -1342,21 +1489,13 @@ function addMessage(message, isUser = false) {
     messageDiv.appendChild(messageTime);
     chatContent.appendChild(messageDiv);
     
-    // Scroll to bottom
-    chatContent.scrollTop = chatContent.scrollHeight;
+    // Only scroll to bottom for bot responses, not for hints
+    if (!isUser && !message.includes('Would you like to know more about')) {
+        chatContent.scrollTop = chatContent.scrollHeight;
+    }
     
     // Update conversation context
     updateConversationContext(message, isUser);
-
-    // Show hints after bot responses, except for contact section
-    if (!isUser) {
-        const currentTopic = conversationState.context.currentTopic;
-        if (currentTopic && currentTopic !== 'contact') {
-            setTimeout(() => {
-                showFloatingHints(currentTopic);
-            }, 500);
-        }
-    }
 }
 
 // Add CSS for floating hints
@@ -1453,55 +1592,50 @@ function analyzeIntent(message) {
 function extractTopic(message) {
     message = message.toLowerCase().trim();
     
-    // Greeting patterns
-    if (message.match(/^(hi|hello|hey|greetings|good (morning|afternoon|evening))$/i)) {
-        return 'greeting';
+    // Add skill-related patterns
+    if (message.includes('skill') || message.includes('expertise') || message.includes('technical') || 
+        message.includes('technology') || message.includes('tech stack') || message.includes('what can you do')) {
+        return 'skills';
     }
-    if (message.match(/^(bye|goodbye|see you|farewell|take care)$/i)) {
-        return 'farewell';
-    }
-    if (message.match(/^(who are you|what are you|what is your name|tell me about yourself)$/i)) {
-        return 'identity';
-    }
-    if (message.match(/^(how are you|how's it going|how do you do|what's up)$/i)) {
-        return 'howAreYou';
-    }
+    
+    // General template patterns
+    if (message.match(/^(what('s| is) the time|current time|time now)$/i)) return 'time';
+    if (message.match(/^(what('s| is) the date|today's date|current date)$/i)) return 'date';
+    if (message.match(/^(what('s| is) the weather|weather today|weather now)$/i)) return 'weather';
+    if (message.match(/^(what('s| is) your name|who are you|tell me your name)$/i)) return 'name';
+    if (message.match(/^(how old are you|what('s| is) your age|age)$/i)) return 'age';
+    if (message.match(/^(where are you|what('s| is) your location|location)$/i)) return 'location';
+    if (message.match(/^(what('s| is) your education|education background|studied)$/i)) return 'education';
+    if (message.match(/^(what('s| is) your experience|work experience|job experience)$/i)) return 'experience';
+    if (message.match(/^(what projects|recent projects|portfolio projects)$/i)) return 'projects';
+    if (message.match(/^(are you available|availability|when can you start)$/i)) return 'availability';
+    if (message.match(/^(salary|compensation|pay|rate)$/i)) return 'salary';
+    if (message.match(/^(remote work|work from home|wfh)$/i)) return 'remote';
+    if (message.match(/^(what languages|programming languages|coding languages)$/i)) return 'languages';
+    if (message.match(/^(what tools|development tools|software tools)$/i)) return 'tools';
+    if (message.match(/^(what methodology|development methodology|work process)$/i)) return 'methodology';
+    if (message.match(/^(team work|team player|collaboration)$/i)) return 'team';
+    if (message.match(/^(challenges|problems solved|technical challenges)$/i)) return 'challenges';
+    if (message.match(/^(future plans|career goals|aspirations)$/i)) return 'future';
+    if (message.match(/^(hobbies|interests|what do you do for fun)$/i)) return 'hobbies';
 
-    // Existing topic extraction logic
+    // Existing topic patterns
+    if (message.match(/^(hi|hello|hey|greetings|good (morning|afternoon|evening))$/i)) return 'greeting';
+    if (message.match(/^(bye|goodbye|see you|farewell|take care)$/i)) return 'farewell';
+    if (message.match(/^(who are you|what are you|what is your name|tell me about yourself)$/i)) return 'identity';
+    if (message.match(/^(how are you|how's it going|how do you do|what's up)$/i)) return 'howAreYou';
+    if (message.match(/^(contact|connect|reach out|get in touch|email|linkedin|github)$/i)) return 'contact';
+
+    // Existing project topics
     if (message === 'crm') return 'crm';
     if (message === 'erp') return 'erp';
     if (message === 'gym') return 'gym';
     if (message === 'school') return 'school';
     if (message === 'hospital') return 'hospital';
     if (message === 'pos') return 'pos';
-    if (message === 'contact') return 'contact';
     if (message === 'projects') return 'projects';
     if (message === 'skills') return 'skills';
     if (message === 'overview') return 'overview';
-
-    // Check for "tell me about" queries
-    if (message.includes('tell me about')) {
-        if (message.includes('crm')) return 'crm';
-        if (message.includes('erp')) return 'erp';
-        if (message.includes('gym')) return 'gym';
-        if (message.includes('school')) return 'school';
-        if (message.includes('hospital')) return 'hospital';
-        if (message.includes('pos')) return 'pos';
-        if (message.includes('contact')) return 'contact';
-        if (message.includes('projects')) return 'projects';
-        if (message.includes('skills')) return 'skills';
-        if (message.includes('overview')) return 'overview';
-    }
-
-    // Contact-related patterns
-    if (message.match(/^(contact|connect|reach out|get in touch|email|linkedin|github)$/i)) {
-        return 'contact';
-    }
-    if (message.includes('contact') || message.includes('connect') || message.includes('reach out') || 
-        message.includes('get in touch') || message.includes('email') || message.includes('linkedin') || 
-        message.includes('github')) {
-        return 'contact';
-    }
 
     return null;
 }
@@ -2108,205 +2242,63 @@ const hints = {
                 }
             ]
         }
+    },
+    skills: {
+        "Enterprise Development": {
+            title: "Enterprise Development",
+            questions: [
+                {
+                    text: "What enterprise technologies do you specialize in?",
+                    response: "I specialize in enterprise technologies including:\n• ASP.NET Core MVC & Web API for robust backend development\n• Entity Framework Core for efficient data management\n• SQL Server & SQLite for database solutions\n• RESTful API Design for scalable services\n• CRM System Development for customer management\n• ERP System Integration for business processes"
+                },
+                {
+                    text: "How do you handle complex enterprise features?",
+                    response: "I handle complex enterprise features through:\n• Master-detail architecture implementation\n• Role-based security and access control\n• Automated workflow systems\n• Real-time data synchronization\n• Comprehensive error handling\n• Performance optimization techniques"
+                },
+                {
+                    text: "What's your approach to enterprise security?",
+                    response: "My security approach includes:\n• Role-based access control (RBAC)\n• Data encryption and protection\n• Secure authentication methods\n• Input validation and sanitization\n• Audit logging and monitoring\n• Compliance with security standards"
+                }
+            ]
+        },
+        "Business Solutions": {
+            title: "Business Solutions",
+            questions: [
+                {
+                    text: "What business solutions have you implemented?",
+                    response: "I've implemented various business solutions including:\n• Business Analytics dashboards\n• Workflow Automation systems\n• Document Management solutions\n• Role-Based Security frameworks\n• Real-time Synchronization systems\n• Custom Reporting tools"
+                },
+                {
+                    text: "How do you ensure business requirements are met?",
+                    response: "I ensure business requirements through:\n• Detailed requirement analysis\n• Regular stakeholder communication\n• Agile development methodology\n• Continuous testing and validation\n• User feedback integration\n• Performance monitoring"
+                },
+                {
+                    text: "What makes your business solutions effective?",
+                    response: "My business solutions are effective because they:\n• Focus on user experience and efficiency\n• Implement automated workflows\n• Provide real-time insights and analytics\n• Ensure data accuracy and reliability\n• Scale with business growth\n• Maintain high performance standards"
+                }
+            ]
+        },
+        "Frontend & Accessibility": {
+            title: "Frontend & Accessibility",
+            questions: [
+                {
+                    text: "What frontend technologies do you use?",
+                    response: "I use modern frontend technologies including:\n• HTML5 & CSS3 for structure and styling\n• JavaScript for interactive features\n• .NET MAUI for cross-platform development\n• Responsive design principles\n• Modern UI/UX practices\n• Progressive enhancement"
+                },
+                {
+                    text: "How do you implement accessibility?",
+                    response: "I implement accessibility through:\n• AAA Standards compliance\n• Keyboard navigation support\n• Screen reader compatibility\n• Color contrast optimization\n• ARIA implementation\n• Semantic HTML structure"
+                },
+                {
+                    text: "What's your approach to responsive design?",
+                    response: "My responsive design approach includes:\n• Mobile-first development\n• Flexible grid systems\n• Adaptive layouts\n• Touch-friendly interfaces\n• Performance optimization\n• Cross-browser compatibility"
+                }
+            ]
+        }
     }
 };
 
 // Update the showFloatingHints function
-function showFloatingHints(topic) {
-    if (!topic) return;
-
-    // Remove any existing hints
-    const existingHints = document.querySelector('.floating-hints');
-    if (existingHints) {
-        existingHints.remove();
-    }
-
-    const chatContent = document.querySelector('.chat-content');
-    if (!chatContent) return;
-
-    // Create hints container
-    const hintContainer = document.createElement('div');
-    hintContainer.className = 'floating-hints';
-
-    // Create hint content
-    const hintContent = document.createElement('div');
-    hintContent.className = 'hint-content';
-
-    // Get hints for the current topic
-    const topicHints = hints[topic];
-    if (!topicHints) return;
-
-    // Add each category
-    Object.entries(topicHints).forEach(([category, data]) => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.className = 'hint-category';
-
-        // Add category title
-        const categoryTitle = document.createElement('h4');
-        categoryTitle.className = 'hint-category-title';
-        categoryTitle.textContent = data.title;
-        categoryDiv.appendChild(categoryTitle);
-
-        // Add questions
-        const questionList = document.createElement('ul');
-        questionList.className = 'hint-list';
-        data.questions.forEach(question => {
-            const listItem = document.createElement('li');
-            listItem.className = 'hint-item';
-            listItem.textContent = question.text;
-            listItem.addEventListener('click', () => {
-                addMessage(question.response);
-                setTimeout(() => showFloatingHints(topic), 1000);
-            });
-            questionList.appendChild(listItem);
-        });
-        categoryDiv.appendChild(questionList);
-        hintContent.appendChild(categoryDiv);
-    });
-
-    hintContainer.appendChild(hintContent);
-    chatContent.appendChild(hintContainer);
-
-    // Auto-hide hints after 30 seconds
-    setTimeout(() => {
-        hintContainer.classList.add('fade-out');
-        setTimeout(() => hintContainer.remove(), 300);
-    }, 30000);
-}
-
-// Add CSS for floating hints
-const hintStyle = document.createElement('style');
-hintStyle.textContent = `
-    .floating-hints {
-        position: relative;
-        margin: 10px 0;
-        animation: slideIn 0.5s ease-out;
-        background: #f8fafc;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
-
-    .hint-content {
-        background: rgba(37, 99, 235, 0.1);
-        border-left: 4px solid #2563eb;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        color: #1f2937;
-    }
-
-    .hint-category {
-        margin-bottom: 15px;
-        animation: fadeIn 0.5s ease-out;
-    }
-
-    .hint-category-title {
-        color: #2563eb;
-        font-size: 1rem;
-        margin-bottom: 8px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .hint-category-title::before {
-        content: '';
-        display: inline-block;
-        width: 4px;
-        height: 16px;
-        background: #2563eb;
-        border-radius: 2px;
-    }
-
-    .hint-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .hint-item {
-        margin: 8px 0;
-        padding: 8px 12px;
-        background: white;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 1px solid #e5e7eb;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .hint-item::before {
-        content: '💡';
-        font-size: 1.1em;
-    }
-
-    .hint-item:hover {
-        background: #f1f5f9;
-        transform: translateX(5px);
-        border-color: #2563eb;
-        color: #2563eb;
-        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
-    }
-
-    .floating-hints.fade-out {
-        animation: fadeOut 0.5s ease-out forwards;
-    }
-
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        to {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .floating-hints {
-            margin: 8px 0;
-            padding: 12px;
-        }
-
-        .hint-content {
-            padding: 10px 14px;
-        }
-
-        .hint-item {
-            padding: 6px 10px;
-            font-size: 0.9rem;
-        }
-    }
-`;
-document.head.appendChild(hintStyle);
-
-// Update the showFloatingHints function to include animation for contact hints
 function showFloatingHints(topic) {
     if (!topic) return;
 
@@ -2352,7 +2344,13 @@ function showFloatingHints(topic) {
             listItem.textContent = question.text;
             listItem.addEventListener('click', () => {
                 addMessage(question.response);
-                setTimeout(() => showFloatingHints(topic), 1000);
+                hintContainer.remove();
+                // Scroll to bottom when a hint is clicked
+                chatContent.scrollTop = chatContent.scrollHeight;
+                // Show hints again after a short delay
+                setTimeout(() => {
+                    showFloatingHints(topic);
+                }, 500);
             });
             questionList.appendChild(listItem);
         });
@@ -2362,70 +2360,6 @@ function showFloatingHints(topic) {
 
     hintContainer.appendChild(hintContent);
     chatContent.appendChild(hintContainer);
-
-    // Auto-hide hints after 30 seconds
-    setTimeout(() => {
-        hintContainer.classList.add('fade-out');
-        setTimeout(() => hintContainer.remove(), 300);
-    }, 30000);
-}
-
-// Add event listeners for expertise buttons
-document.querySelectorAll('.expertise-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const topic = button.getAttribute('data-type');
-        const userMessage = button.textContent.trim();
-        
-        // Add user message
-        addMessage(userMessage, true);
-        
-        // Show typing indicator
-        const typingIndicator = showTypingIndicator();
-        
-        // Generate response based on topic
-        setTimeout(() => {
-            removeTypingIndicator(typingIndicator);
-            let response;
-            
-            // Check if it's a project-specific topic
-            if (['hospital', 'gym', 'school', 'crm', 'erp', 'pos'].includes(topic)) {
-                response = generateProjectResponse(topic);
-            } else {
-                response = generateTopicResponse(topic);
-            }
-            
-            // Add bot response
-            addMessage(response);
-            
-            // Show hints immediately after response, except for contact section
-            if (topic !== 'contact') {
-                setTimeout(() => {
-                    showFloatingHints(topic);
-                }, 500);
-            }
-        }, 1000);
-    });
-});
-
-// Add a separate button for showing contact hints
-const contactButton = document.querySelector('.expertise-btn[data-type="contact"]');
-if (contactButton) {
-    contactButton.addEventListener('click', () => {
-        // Add a hint toggle button after the contact message
-        const hintToggle = document.createElement('button');
-        hintToggle.className = 'hint-toggle-btn';
-        hintToggle.innerHTML = '<i class="fas fa-lightbulb"></i> Show Job Opportunities';
-        hintToggle.addEventListener('click', () => {
-            showFloatingHints('contact');
-            hintToggle.remove();
-        });
-        
-        // Add the button to the chat content
-        const chatContent = document.querySelector('.chat-content');
-        if (chatContent) {
-            chatContent.appendChild(hintToggle);
-        }
-    });
 }
 
 // Add CSS for the hint toggle button
@@ -2457,5 +2391,92 @@ hintToggleStyle.textContent = `
     .hint-toggle-btn i {
         color: #2563eb;
     }
+
+    .floating-hints {
+        position: relative;
+        margin: 10px 0;
+        animation: slideIn 0.5s ease-out;
+        background: #f8fafc;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hint-content {
+        background: rgba(37, 99, 235, 0.1);
+        border-left: 4px solid #2563eb;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        color: #1f2937;
+    }
+
+    .hint-category {
+        margin-bottom: 15px;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .hint-category-title {
+        color: #2563eb;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .hint-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hint-item {
+        margin: 8px 0;
+        padding: 8px 12px;
+        background: white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
+    }
+
+    .hint-item:hover {
+        background: #f1f5f9;
+        transform: translateX(5px);
+        border-color: #2563eb;
+        color: #2563eb;
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+    }
 `;
 document.head.appendChild(hintToggleStyle);
+
+// Add event listeners for expertise buttons
+document.querySelectorAll('.expertise-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const topic = button.getAttribute('data-type');
+        const userMessage = button.textContent.trim();
+        
+        // Add user message
+        addMessage(userMessage, true);
+        
+        // Show typing indicator
+        const typingIndicator = showTypingIndicator();
+        
+        // Generate response based on topic
+        setTimeout(() => {
+            removeTypingIndicator(typingIndicator);
+            let response;
+            
+            // Check if it's a project-specific topic
+            if (['hospital', 'gym', 'school', 'crm', 'erp', 'pos'].includes(topic)) {
+                response = generateProjectResponse(topic);
+            } else {
+                response = generateTopicResponse(topic);
+            }
+            
+            // Add bot response
+            addMessage(response);
+            // Show hints directly after response
+            showFloatingHints(topic);
+        }, 1000);
+    });
+});
