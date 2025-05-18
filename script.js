@@ -346,1444 +346,89 @@ function processUserInput(input) {
     setTimeout(() => {
         removeTypingIndicator(typingIndicator);
         addMessage(response);
+        // Show hints after response
+        showFloatingHints(topic);
     }, 1000);
 }
 
 function generateTopicResponse(topic) {
-    const responses = {
-        greeting: `🌟 Welcome! I'm your AI assistant, here to help you discover Sandip's expertise! 🌟
-
-I can help you with:
-
-1. **Enterprise Solutions**
-   • Management Systems
-   • E-commerce Platforms
-   • Business Applications
-   • Custom Software
-
-2. **Technical Expertise**
-   • ASP.NET Core Development
-   • Database Management
-   • Web Development
-   • System Architecture
-
-3. **Recent Projects**
-   • Hospital Management System
-   • Gym Management System
-   • School Management System
-   • Enterprise CRM System
-
-4. **Contact & Collaboration**
-   • Schedule a consultation
-   • Get a free quote
-   • View portfolio
-   • Discuss your project
-
-Feel free to:
-• Click any button below
-• Ask about specific topics
-• Learn about our services
-• Get in touch
-
-How can I help you today? 😊`,
-
-        contact: `🌟 Ready to Transform Your Business? Let's Connect! 🌟
-
-I'm excited to help you bring your vision to life! Here's how we can work together:
-
-1. **Your Vision, Our Expertise**
-   • Custom enterprise solutions
-   • Scalable applications
-   • Modern technology stack
-   • Proven track record
-   • 100% project success rate
-
-2. **Why Choose Us?**
-   • 4+ successful management systems
-   • Canadian AAA accessibility standards
-   • Clean, maintainable code
-   • On-time delivery
-   • Dedicated support
-
-3. **Our Process**
-   • Initial consultation
-   • Detailed requirements analysis
-   • Custom solution design
-   • Agile development
-   • Continuous feedback
-
-4. **Let's Get Started**
-   • Schedule a free consultation
-   • Discuss your requirements
-   • Get a detailed proposal
-   • Start your project
-   • Transform your business
-
-5. **Contact Options**
-   • Email: sandip2446@gmail.com
-   • LinkedIn: linkedin.com/in/sandip2446
-   • GitHub: github.com/sandip2446
-   • Location: Welland, ON, Canada
-
-**Special Offer!** 🎉
-Book a consultation now and get a free technical assessment of your current system!
-
-Would you like to:
-1. Schedule a consultation?
-2. Learn more about our services?
-3. See our portfolio?
-4. Get a free quote?
-
-Just let me know what interests you, and I'll guide you through the next steps! 😊`,
-
-        farewell: `Thank you for chatting with me! 👋
-
-I hope I was able to help you learn about Sandip's expertise and projects. If you have any more questions about:
-• Enterprise solutions
-• Technical skills
-• Project implementations
-• Or anything else
-
-Feel free to come back anytime! Have a great day! 😊`,
-
-        overview: `Let me tell you about Sandip's expertise! 👨‍💻
-
-Here's what I can help you with:
-
-1. **Enterprise Solutions**
-   • Management Systems
-   • E-commerce Platforms
-   • Business Applications
-   • Web Solutions
-   • Custom Software
-
-2. **Recent Projects**
-   • Hospital Management System (2024)
-   • Gym Management System (2023)
-   • School Management System (2023)
-   • Enterprise CRM System (2023)
-   • All projects implemented with AAA standards
-
-3. **Technical Stack**
-   • ASP.NET Core MVC
-   • Entity Framework Core
-   • SQL Server & SQLite
-   • Modern Frontend Technologies
-   • RESTful API Design
-
-4. **Key Strengths**
-   • Clean Code Architecture
-   • Scalable Solutions
-   • Security Implementation
-   • Automated Workflows
-   • Accessibility Standards
-
-5. **Business Impact**
-   • Improved Efficiency
-   • Cost Reduction
-   • Better User Experience
-   • Data-Driven Decisions
-   • Process Automation
-
-Would you like to know more about any specific aspect? I can tell you about my projects, technical skills, or how I can help with your specific needs! 😊`,
-
-        skills: `Let me share my technical expertise with you! 💻
-
-1. **Backend Development**
-   • ASP.NET Core MVC & Web API
-   • Entity Framework Core
-   • SQL Server & SQLite
-   • C# Programming
-   • RESTful API Design
-   • Repository Pattern
-   • View Models & DTOs
-   • Master-Detail Architecture
-
-2. **Frontend Development**
-   • HTML5 & CSS3
-   • JavaScript
-   • Responsive Design
-   • UI/UX Implementation
-   • Modern Web Technologies
-   • Cross-Platform Development
-   • Mobile-First Approach
-   • Progressive Web Apps
-
-3. **Database & Data Management**
-   • Database Design
-   • Query Optimization
-   • Data Modeling
-   • Data Migration
-   • Backup & Recovery
-   • Complex Relationships
-   • Performance Tuning
-   • Data Security
-
-4. **Development Practices**
-   • Clean Code Principles
-   • SOLID Principles
-   • Design Patterns
-   • Unit Testing
-   • Version Control (Git)
-   • Agile Development
-   • Code Documentation
-   • Code Review
-
-5. **Additional Expertise**
-   • Canadian AAA Standards
-   • Security Implementation
-   • API Integration
-   • Payment Processing
-   • Email Services
-   • Cloud Services
-   • Performance Optimization
-   • Accessibility Compliance
-
-Would you like to know more about any specific skill set or how I can apply these skills to your project? 😊`,
-
-        pos: `The POS System is a powerful sales solution! 💰
-
-Here's how it works:
-
-1. **Core Components**
-   • Sales interface
-   • Inventory management
-   • Customer database
-   • Payment processing
-   • Reporting system
-
-2. **System Architecture**
-   • ASP.NET Core MVC
-   • SQL Server database
-   • Real-time updates
-   • Secure transactions
-   • Offline capability
-
-3. **Key Features**
-   • Quick sales processing
-   • Multiple payment methods
-   • Customer loyalty program
-   • Inventory tracking
-   • Sales analytics
-
-4. **Integration Points**
-   • Payment gateways
-   • Barcode scanners
-   • Receipt printers
-   • Customer displays
-   • Mobile devices
-
-5. **Business Benefits**
-   • Faster transactions
-   • Better inventory control
-   • Customer insights
-   • Sales tracking
-   • Business growth
-
-Would you like to know more about any specific feature? 😊`,
-
-        inventory: `The Inventory Management System is a powerful tool! 📦
-
-Here's how it works:
-
-1. **Core Components**
-   • Stock tracking
-   • Supplier management
-   • Order processing
-   • Warehouse management
-   • Reporting system
-
-2. **System Architecture**
-   • ASP.NET Core MVC
-   • Entity Framework Core
-   • SQL Server database
-   • Real-time updates
-   • Mobile access
-
-3. **Key Features**
-   • Real-time stock tracking
-   • Automated reordering
-   • Supplier management
-   • Batch tracking
-   • Stock valuation
-
-4. **Integration Points**
-   • POS systems
-   • E-commerce platforms
-   • Shipping services
-   • Accounting software
-   • Mobile scanners
-
-5. **Business Benefits**
-   • Better stock control
-   • Reduced costs
-   • Improved efficiency
-   • Data accuracy
-   • Business growth
-
-Would you like to know more about any specific feature? 😊`,
-
-        website: `The Website Development solution is modern and responsive! 🌐
-
-Here's how it works:
-
-1. **Core Components**
-   • Frontend interface
-   • Content management
-   • User authentication
-   • Database system
-   • Analytics tracking
-
-2. **System Architecture**
-   • ASP.NET Core MVC
-   • Modern frontend framework
-   • SQL Server database
-   • RESTful API
-   • Cloud hosting
-
-3. **Key Features**
-   • Responsive design
-   • SEO optimization
-   • Content management
-   • User management
-   • Analytics dashboard
-
-4. **Integration Points**
-   • Social media
-   • Payment gateways
-   • Email services
-   • Analytics tools
-   • Third-party APIs
-
-5. **Business Benefits**
-   • Online presence
-   • Lead generation
-   • Customer engagement
-   • Brand building
-   • Business growth
-
-Would you like to know more about any specific feature? 😊`,
-
-        ecommerce: `The E-commerce solution is a complete online store! 🛍️
-
-Here's how it works:
-
-1. **Core Components**
-   • Product catalog
-   • Shopping cart
-   • Payment processing
-   • Order management
-   • Customer portal
-
-2. **System Architecture**
-   • ASP.NET Core MVC
-   • Entity Framework Core
-   • SQL Server database
-   • Payment gateway
-   • Cloud hosting
-
-3. **Key Features**
-   • Product management
-   • Secure checkout
-   • Order tracking
-   • Customer accounts
-   • Sales analytics
-
-4. **Integration Points**
-   • Payment gateways
-   • Shipping services
-   • Email marketing
-   • Inventory systems
-   • Mobile apps
-
-5. **Business Benefits**
-   • Online sales
-   • Customer reach
-   • 24/7 operation
-   • Sales tracking
-   • Business growth
-
-Would you like to know more about any specific feature? 😊`,
-
-        erp: `The ERP System is a comprehensive business solution! 🏢
-
-Here's how it works:
-
-1. **Core Components**
-   • Inventory Management
-   • Sales & CRM
-   • Financial Accounting
-   • Human Resources
-   • Business Analytics
-
-2. **System Architecture**
-   • ASP.NET Core MVC backend
-   • SQL Server database
-   • Entity Framework Core
-   • RESTful API design
-   • Role-based security
-
-3. **Key Features**
-   • Real-time inventory tracking
-   • Automated sales processing
-   • Financial reporting
-   • Employee management
-   • Performance analytics
-
-4. **Integration Points**
-   • Payment gateways
-   • Email services
-   • Document management
-   • Reporting tools
-   • Mobile access
-
-5. **Business Benefits**
-   • Streamlined operations
-   • Better decision making
-   • Cost reduction
-   • Improved efficiency
-   • Data-driven insights
-
-Would you like to know more about any specific feature? 😊`,
-
-        crm: `The CRM System is a powerful customer management solution! 🤝
-
-Here's how it works:
-
-1. **Core Components**
-   • Customer database
-   • Sales pipeline
-   • Marketing tools
-   • Service management
-   • Analytics dashboard
-
-2. **System Architecture**
-   • ASP.NET Core MVC
-   • Entity Framework Core
-   • SQL Server database
-   • RESTful API
-   • Real-time updates
-
-3. **Key Features**
-   • Lead management
-   • Customer tracking
-   • Sales forecasting
-   • Marketing campaigns
-   • Service tickets
-
-4. **Integration Points**
-   • Email marketing
-   • Social media
-   • Payment systems
-   • Document management
-   • Mobile apps
-
-5. **Business Benefits**
-   • Better customer relationships
-   • Increased sales
-   • Improved marketing
-   • Better service
-   • Business growth
-
-Would you like to know more about any specific feature? 😊`,
-
-        education: `🎓 **Education & Training**
-• Computer Programming Diploma at Niagara College, Welland, ON
-• Expected Graduation: 2025
-• Key Courses:
-  - ASP.NET Core Development
-  - Database Management Systems
-  - Web Development & Design
-  - Software Engineering Principles
-
-Would you like to know more about any specific course or training?`,
-
-        courses: `📚 **Relevant Coursework**
-• ASP.NET Core Development
-  - Enterprise application development
-  - MVC architecture implementation
-  - Web API development
-• Database Management Systems
-  - SQL Server & SQLite
-  - Entity Framework Core
-  - Data modeling and optimization
-• Web Development & Design
-  - Frontend technologies
-  - Responsive design
-  - Accessibility standards
-• Software Engineering Principles
-  - Design patterns
-  - Clean code practices
-  - Version control
-
-Would you like to know more about any specific course?`,
-
-        experience: `💼 **Professional Experience**
-• Hospital Management System (Jan 2024 - Present)
-  - Patient management & scheduling
-  - AAA accessibility implementation
-  - Automated workflows
-  - Real-time analytics
-
-• Gym Management System (Oct 2023 - Dec 2023)
-  - Member management
-  - Payment processing
-  - Self-service portal
-  - Attendance tracking
-
-• School Management System (Jul 2023 - Sep 2023)
-  - Student records
-  - Grade management
-  - Parent-teacher communication
-  - Attendance tracking
-
-• Enterprise CRM System (Sep 2023 - Dec 2023)
-  - Lead management
-  - Sales analytics
-  - Document control
-  - Customer communication
-
-Would you like to know more about any specific project?`,
-
-        backend: `⚙️ **Backend & Enterprise Development**
-• ASP.NET Core MVC & Web API
-  - Enterprise application development
-  - RESTful API design
-  - Service architecture
-• Entity Framework Core
-  - Advanced data management
-  - Complex relationships
-  - Data optimization
-• SQL Server & SQLite
-  - Database design
-  - Query optimization
-  - Data modeling
-• C# Development
-  - Object-oriented programming
-  - Design patterns
-  - Clean code practices
-
-Would you like to know more about any specific backend technology?`,
-
-        frontend: `🛠️ **Frontend & Cross-Platform**
-• HTML5 & CSS3
-  - Modern web development
-  - Responsive design
-  - Mobile-first approach
-• JavaScript
-  - Interactive applications
-  - Dynamic content
-  - User interface
-• .NET MAUI
-  - Cross-platform development
-  - Mobile applications
-  - Native features
-• UI/UX Implementation
-  - User-centered design
-  - Accessibility
-  - Modern interfaces
-
-Would you like to know more about any specific frontend technology?`,
-
-        accessibility: `♿ **Accessibility & Standards**
-• Canadian AAA Standards
-  - Government compliance
-  - Accessibility guidelines
-  - Best practices
-• WCAG 2.1 Guidelines
-  - Web content accessibility
-  - User experience
-  - Inclusive design
-• Screen Reader Support
-  - Assistive technology
-  - Navigation
-  - Content structure
-• ARIA Implementation
-  - Enhanced accessibility
-  - Semantic markup
-  - User interaction
-
-Would you like to know more about any specific accessibility feature?`,
-
-        data: `📊 **Data Science & Analytics**
-• Python
-  - Data analysis
-  - Scripting
-  - Automation
-• NumPy
-  - Numerical computing
-  - Data processing
-  - Mathematical operations
-• Pandas
-  - Data manipulation
-  - Analysis
-  - Visualization
-• Analytics Tools
-  - Business intelligence
-  - Reporting
-  - Data insights
-
-Would you like to know more about any specific data science tool?`,
-
-        contact: `📞 **Contact Information**
-• Email: sandip2446@gmail.com
-• LinkedIn: linkedin.com/in/sandip2446
-• GitHub: github.com/sandip2446
-• Location: Welland, ON, Canada
-
-Would you like to know more about any specific contact method?`,
-
-        achievements: `🏆 **Key Achievements**
-• Enterprise Solutions
-  - Developed 4 management systems
-  - ASP.NET Core MVC implementation
-  - Complex feature development
-• Accessibility Compliance
-  - Canadian government standards
-  - AAA accessibility
-  - Inclusive design
-• Technical Excellence
-  - Full-stack development
-  - Modern technologies
-  - Best practices
-• Project Success
-  - Complex features
-  - User satisfaction
-  - Business efficiency
-
-Would you like to know more about any specific achievement?`,
-
-        hospital: `🏥 **Hospital Management System**
-• Project Impact:
-  - Patient management & scheduling
-  - AAA accessibility standards
-  - Automated workflows
-  - Real-time analytics
-• Technical Implementation:
-  - ASP.NET Core MVC
-  - Entity Framework Core
-  - SQL Server
-  - Chart.js dashboard
-  - Email notifications
-
-Would you like to know more about any specific feature?`,
-
-        gym: `💪 **Gym Management System**
-• Project Impact:
-  - Member management
-  - Class scheduling
-  - Payment processing
-  - Self-service portal
-• Technical Implementation:
-  - ASP.NET Core MVC
-  - SQLite database
-  - Entity relationships
-  - Payment gateway
-  - Scheduling system
-
-Would you like to know more about any specific feature?`,
-
-        school: `📚 **School Management System**
-• Project Impact:
-  - Student records
-  - Grade management
-  - Parent communication
-  - Attendance tracking
-• Technical Implementation:
-  - ASP.NET Core MVC
-  - Entity Framework
-  - Complex relationships
-  - Grade calculation
-  - Communication portal
-
-Would you like to know more about any specific feature?`,
-
-        crm: `👥 **Enterprise CRM System**
-• Project Impact:
-  - Lead management
-  - Sales analytics
-  - Document control
-  - Customer communication
-• Technical Implementation:
-  - ASP.NET Core MVC
-  - SQLite database
-  - Complex relationships
-  - Analytics dashboard
-  - Workflow automation
-
-Would you like to know more about any specific feature?`,
-
-        summary: `👋 **Professional Summary**
-Full Stack .NET Developer with expertise in:
-• Enterprise-grade applications
-• Cross-platform solutions
-• Four management systems
-• ASP.NET Core MVC
-• Complex features
-• Role-based security
-• Automated workflows
-• Data science & analytics
-
-Would you like to know more about any specific area?`,
-
-        location: `📍 **Location & Availability**
-• Current Location: Welland, ON, Canada
-• Education: Niagara College
-• Graduation: 2025
-• Open to: Remote & Local Opportunities
-
-Would you like to know more about my availability or location?`,
-
-        technologies: `🛠️ **Technologies & Tools**
-• Backend:
-  - ASP.NET Core MVC
-  - Entity Framework Core
-  - SQL Server & SQLite
-  - C# & .NET
-• Frontend:
-  - HTML5 & CSS3
-  - JavaScript
-  - .NET MAUI
-  - UWP
-• Data Science:
-  - Python
-  - NumPy
-  - Pandas
-• Tools:
-  - Git
-  - Visual Studio
-  - VS Code
-
-Would you like to know more about any specific technology?`,
-
-        // Project Overview
-        'projects': `🚀 **Project Portfolio Overview**
-• Hospital Management System (2024)
-  - Patient care & scheduling
-  - Medical records management
-  - Staff coordination
-  - Analytics dashboard
-
-• Gym Management System (2023)
-  - Member management
-  - Class scheduling
-  - Payment processing
-  - Progress tracking
-
-• School Management System (2023)
-  - Student administration
-  - Academic management
-  - Parent portal
-  - Attendance system
-
-• Enterprise CRM System (2023)
-  - Customer management
-  - Sales tracking
-  - Document control
-  - Communication hub
-
-Would you like to know more about any specific project?`,
-
-        // Project Features
-        'project-features': `✨ **Project Features & Capabilities**
-• Core Features:
-  - User authentication & authorization
-  - Role-based access control
-  - Real-time data processing
-  - Automated workflows
-  - Reporting & analytics
-  - Mobile responsiveness
-  - Accessibility compliance
-
-• Technical Features:
-  - ASP.NET Core MVC architecture
-  - Entity Framework Core
-  - SQL Server/SQLite databases
-  - RESTful APIs
-  - Responsive UI/UX
-  - Cross-platform support
-
-Would you like to know more about specific features or technical implementation?`,
-
-        // Project Architecture
-        'project-architecture': `🏗️ **Project Architecture**
-• System Design:
-  - N-tier architecture
-  - MVC pattern
-  - Repository pattern
-  - Service layer
-  - Data access layer
-
-• Technology Stack:
-  - Backend: ASP.NET Core, C#
-  - Frontend: HTML5, CSS3, JavaScript
-  - Database: SQL Server/SQLite
-  - ORM: Entity Framework Core
-  - UI: Bootstrap, jQuery
-  - Tools: Git, Visual Studio
-
-Would you like to know more about any specific architectural aspect?`,
-
-        // Project Benefits
-        'project-benefits': `💡 **Project Benefits & Impact**
-• Business Benefits:
-  - Improved efficiency
-  - Cost reduction
-  - Better decision-making
-  - Enhanced user experience
-  - Streamlined operations
-  - Data-driven insights
-
-• Technical Benefits:
-  - Scalable architecture
-  - Maintainable code
-  - Secure implementation
-  - Performance optimization
-  - Cross-platform support
-  - Accessibility compliance
-
-Would you like to know more about specific benefits or impact?`,
-
-        // Project Development
-        'project-development': `⚡ **Project Development Process**
-• Development Approach:
-  - Agile methodology
-  - Iterative development
-  - Continuous feedback
-  - Regular testing
-  - Code reviews
-  - Documentation
-
-• Implementation Steps:
-  1. Requirements analysis
-  2. System design
-  3. Database modeling
-  4. Core development
-  5. UI/UX implementation
-  6. Testing & deployment
-  7. Maintenance & support
-
-Would you like to know more about the development process?`,
-
-        // Project Security
-        'project-security': `🔒 **Project Security Features**
-• Security Measures:
-  - Authentication
-  - Authorization
-  - Data encryption
-  - Input validation
-  - XSS protection
-  - CSRF protection
-  - SQL injection prevention
-
-• Compliance:
-  - Data protection
-  - Privacy standards
-  - Security best practices
-  - Regular audits
-  - Access control
-  - Secure communication
-
-Would you like to know more about security features?`,
-
-        // Project Integration
-        'project-integration': `🔄 **Project Integration Points**
-• System Integration:
-  - API endpoints
-  - Third-party services
-  - Payment gateways
-  - Email services
-  - SMS services
-  - Cloud services
-
-• Data Integration:
-  - Database connections
-  - Data synchronization
-  - Import/Export
-  - Backup systems
-  - Analytics tools
-  - Reporting systems
-
-Would you like to know more about integration capabilities?`,
-
-        // Project Maintenance
-        'project-maintenance': `🔧 **Project Maintenance & Support**
-• Maintenance Services:
-  - Regular updates
-  - Bug fixes
-  - Performance optimization
-  - Security patches
-  - Feature enhancements
-  - Technical support
-
-• Support Features:
-  - User documentation
-  - Technical documentation
-  - Training materials
-  - Help desk
-  - Issue tracking
-  - Version control
-
-Would you like to know more about maintenance and support?`,
-
-        // Project Timeline
-        'project-timeline': `📅 **Project Timeline**
-• Hospital System (2024):
-  - Planning: Jan 2024
-  - Development: Feb 2024
-  - Testing: Mar 2024
-  - Deployment: Apr 2024
-
-• Gym System (2023):
-  - Planning: Oct 2023
-  - Development: Nov 2023
-  - Testing: Dec 2023
-  - Deployment: Dec 2023
-
-• School System (2023):
-  - Planning: Jul 2023
-  - Development: Aug 2023
-  - Testing: Sep 2023
-  - Deployment: Sep 2023
-
-• CRM System (2023):
-  - Planning: Sep 2023
-  - Development: Oct 2023
-  - Testing: Nov 2023
-  - Deployment: Dec 2023
-
-Would you like to know more about any specific project timeline?`,
-
-        // Project Challenges
-        'project-challenges': `🎯 **Project Challenges & Solutions**
-• Technical Challenges:
-  - Complex data relationships
-  - Performance optimization
-  - Security implementation
-  - Cross-platform compatibility
-  - Integration complexity
-  - Scalability requirements
-
-• Business Challenges:
-  - User adoption
-  - Process automation
-  - Data migration
-  - Training requirements
-  - Change management
-  - System integration
-
-Would you like to know more about specific challenges and solutions?`,
-
-        // How it works templates
-        'how-it-works': `🔄 **How Our Systems Work**
-• Core Functionality:
-  - User-friendly interfaces
-  - Automated processes
-  - Real-time updates
-  - Secure data handling
-  - Cross-platform access
-  - Mobile responsiveness
-
-• System Flow:
-  1. User authentication
-  2. Role-based access
-  3. Data processing
-  4. Automated workflows
-  5. Real-time updates
-  6. Report generation
-
-Would you like to know more about any specific functionality?`,
-
-        // Impact templates
-        'system-impact': `💡 **System Impact & Benefits**
-• Operational Impact:
-  - Streamlined processes
-  - Reduced manual work
-  - Improved efficiency
-  - Better decision-making
-  - Cost savings
-  - Time optimization
-
-• User Impact:
-  - Enhanced user experience
-  - Easy access to information
-  - Better communication
-  - Increased productivity
-  - Improved satisfaction
-  - Reduced errors
-
-Would you like to know more about specific impacts or benefits?`,
-
-        // School System specific
-        'school-how': `🏫 **How the School System Works**
-• Student Management:
-  - Digital enrollment
-  - Attendance tracking
-  - Grade management
-  - Progress monitoring
-  - Report generation
-  - Parent communication
-
-• Administrative Features:
-  - Staff management
-  - Class scheduling
-  - Resource allocation
-  - Fee management
-  - Document handling
-  - Communication tools
-
-Would you like to know more about any specific feature?`,
-
-        'school-impact': `📚 **School System Impact**
-• For Students:
-  - Easy access to grades
-  - Online assignments
-  - Progress tracking
-  - Communication tools
-  - Resource access
-  - Learning support
-
-• For Teachers:
-  - Simplified grading
-  - Attendance management
-  - Lesson planning
-  - Parent communication
-  - Resource sharing
-  - Performance tracking
-
-• For Administrators:
-  - Streamlined operations
-  - Better resource management
-  - Improved communication
-  - Enhanced reporting
-  - Data-driven decisions
-  - Cost optimization
-
-Would you like to know more about any specific impact area?`,
-
-        // Hospital System specific
-        'hospital-how': `🏥 **How the Hospital System Works**
-• Patient Management:
-  - Digital registration
-  - Appointment scheduling
-  - Medical records
-  - Treatment tracking
-  - Billing management
-  - Patient communication
-
-• Medical Features:
-  - Doctor scheduling
-  - Treatment plans
-  - Medication tracking
-  - Lab results
-  - Medical history
-  - Emergency response
-
-Would you like to know more about any specific feature?`,
-
-        'hospital-impact': `💊 **Hospital System Impact**
-• For Patients:
-  - Easy appointment booking
-  - Quick access to records
-  - Better communication
-  - Reduced wait times
-  - Improved care
-  - Enhanced experience
-
-• For Staff:
-  - Streamlined workflows
-  - Better coordination
-  - Easy record access
-  - Efficient scheduling
-  - Improved communication
-  - Enhanced productivity
-
-• For Management:
-  - Better resource allocation
-  - Improved efficiency
-  - Cost reduction
-  - Better decision-making
-  - Enhanced reporting
-  - Quality improvement
-
-Would you like to know more about any specific impact area?`,
-
-        // Gym System specific
-        'gym-how': `💪 **How the Gym System Works**
-• Member Management:
-  - Digital registration
-  - Membership tracking
-  - Class booking
-  - Payment processing
-  - Progress tracking
-  - Communication tools
-
-• Operational Features:
-  - Staff scheduling
-  - Equipment management
-  - Class management
-  - Payment processing
-  - Report generation
-  - Marketing tools
-
-Would you like to know more about any specific feature?`,
-
-        'gym-impact': `🏋️ **Gym System Impact**
-• For Members:
-  - Easy class booking
-  - Progress tracking
-  - Payment management
-  - Communication tools
-  - Resource access
-  - Enhanced experience
-
-• For Staff:
-  - Simplified scheduling
-  - Easy member management
-  - Payment processing
-  - Communication tools
-  - Report generation
-  - Resource management
-
-• For Management:
-  - Better operations
-  - Improved efficiency
-  - Cost reduction
-  - Better decision-making
-  - Enhanced reporting
-  - Business growth
-
-Would you like to know more about any specific impact area?`,
-
-        // CRM System specific
-        'crm-how': `👥 **How the CRM System Works**
-• Customer Management:
-  - Lead tracking
-  - Customer profiles
-  - Interaction history
-  - Sales pipeline
-  - Document management
-  - Communication tools
-
-• Business Features:
-  - Sales tracking
-  - Marketing tools
-  - Analytics dashboard
-  - Report generation
-  - Task management
-  - Team collaboration
-
-Would you like to know more about any specific feature?`,
-
-        'crm-impact': `📈 **CRM System Impact**
-• For Sales Team:
-  - Better lead management
-  - Improved tracking
-  - Enhanced communication
-  - Easy reporting
-  - Task automation
-  - Performance insights
-
-• For Management:
-  - Better decision-making
-  - Improved efficiency
-  - Cost reduction
-  - Enhanced reporting
-  - Business insights
-  - Growth tracking
-
-• For Customers:
-  - Better service
-  - Improved communication
-  - Faster response
-  - Enhanced experience
-  - Easy access
-  - Better support
-
-Would you like to know more about any specific impact area?`,
-
-        // User Benefits
-        'user-benefits': `🌟 **User Benefits & Advantages**
-• For End Users:
-  - Easy-to-use interfaces
-  - Quick access to information
-  - Time-saving features
-  - Mobile accessibility
-  - Real-time updates
-  - 24/7 availability
-
-• For Administrators:
-  - Centralized management
-  - Automated workflows
-  - Comprehensive reporting
-  - Data analytics
-  - User management
-  - System monitoring
-
-• For Organizations:
-  - Increased efficiency
-  - Cost reduction
-  - Better decision-making
-  - Improved communication
-  - Enhanced security
-  - Scalable solutions
-
-Would you like to know more about specific user benefits?`,
-
-        // System Functionality
-        'system-functionality': `⚙️ **System Functionality & Features**
-• Core Features:
-  - User authentication
-  - Role-based access
-  - Data management
-  - Report generation
-  - Search functionality
-  - Export capabilities
-
-• Technical Features:
-  - Real-time processing
-  - Data validation
-  - Error handling
-  - Backup systems
-  - Security measures
-  - Performance optimization
-
-• Integration Features:
-  - API connectivity
-  - Third-party integration
-  - Data synchronization
-  - Import/Export tools
-  - Communication tools
-  - Analytics integration
-
-Would you like to know more about any specific functionality?`,
-
-        // User Experience
-        'user-experience': `👥 **User Experience & Interface**
-• Interface Design:
-  - Clean, modern layout
-  - Intuitive navigation
-  - Responsive design
-  - Mobile-friendly
-  - Accessible interface
-  - Customizable views
-
-• User Features:
-  - Dashboard views
-  - Quick actions
-  - Search functionality
-  - Filter options
-  - Sort capabilities
-  - Export features
-
-• Accessibility:
-  - Screen reader support
-  - Keyboard navigation
-  - High contrast mode
-  - Text scaling
-  - Color adjustments
-  - Focus indicators
-
-Would you like to know more about the user experience?`,
-
-        // System Performance
-        'system-performance': `⚡ **System Performance & Reliability**
-• Performance Features:
-  - Fast loading times
-  - Quick response
-  - Efficient processing
-  - Resource optimization
-  - Caching system
-  - Load balancing
-
-• Reliability Features:
-  - 99.9% uptime
-  - Data backup
-  - Error recovery
-  - System monitoring
-  - Performance tracking
-  - Maintenance alerts
-
-• Security Features:
-  - Data encryption
-  - Access control
-  - Audit logging
-  - Security monitoring
-  - Threat detection
-  - Compliance checks
-
-Would you like to know more about system performance?`,
-
-        // User Support
-        'user-support': `🛠️ **User Support & Assistance**
-• Support Features:
-  - Help documentation
-  - Video tutorials
-  - User guides
-  - FAQ section
-  - Contact support
-  - Live chat
-
-• Training Resources:
-  - Onboarding guides
-  - Training videos
-  - Best practices
-  - Tips & tricks
-  - Use cases
-  - Troubleshooting guides
-
-• Maintenance Support:
-  - Regular updates
-  - Bug fixes
-  - Feature enhancements
-  - Technical support
-  - System maintenance
-  - Performance optimization
-
-Would you like to know more about user support?`,
-
-        // System Integration
-        'system-integration': `🔄 **System Integration & Connectivity**
-• Integration Features:
-  - API endpoints
-  - Web services
-  - Data import/export
-  - Third-party apps
-  - Cloud services
-  - Mobile apps
-
-• Connectivity Options:
-  - REST APIs
-  - WebSocket
-  - Database connections
-  - File sharing
-  - Email integration
-  - SMS integration
-
-• Data Exchange:
-  - Real-time sync
-  - Batch processing
-  - Data validation
-  - Format conversion
-  - Error handling
-  - Logging
-
-Would you like to know more about system integration?`,
-
-        // User Analytics
-        'user-analytics': `📊 **User Analytics & Reporting**
-• Analytics Features:
-  - Usage statistics
-  - Performance metrics
-  - User behavior
-  - System health
-  - Error tracking
-  - Success rates
-
-• Reporting Tools:
-  - Custom reports
-  - Data visualization
-  - Export options
-  - Scheduled reports
-  - Real-time dashboards
-  - Trend analysis
-
-• Insights:
-  - User patterns
-  - System usage
-  - Performance trends
-  - Error analysis
-  - Success metrics
-  - Improvement areas
-
-Would you like to know more about analytics and reporting?`,
-
-        // System Security
-        'system-security': `🔒 **System Security & Protection**
-• Security Features:
-  - User authentication
-  - Access control
-  - Data encryption
-  - Secure communication
-  - Audit logging
-  - Threat detection
-
-• Protection Measures:
-  - Password policies
-  - Session management
-  - Data backup
-  - Recovery options
-  - Security monitoring
-  - Compliance checks
-
-• Privacy Features:
-  - Data protection
-  - Privacy controls
-  - User consent
-  - Data retention
-  - Access logs
-  - Privacy policies
-
-Would you like to know more about system security?`,
-
-        // User Customization
-        'user-customization': `🎨 **User Customization & Preferences**
-• Customization Options:
-  - Personal settings
-  - Interface themes
-  - Layout options
-  - Notification preferences
-  - Display settings
-  - Language options
-
-• User Preferences:
-  - Dashboard layout
-  - Report formats
-  - Email settings
-  - Alert preferences
-  - Time zone
-  - Date format
-
-• System Settings:
-  - User roles
-  - Access levels
-  - Feature toggles
-  - Integration settings
-  - Security options
-  - Performance settings
-
-Would you like to know more about customization options?`,
-
-        // System Updates
-        'system-updates': `🔄 **System Updates & Maintenance**
-• Update Features:
-  - Regular updates
-  - Feature releases
-  - Bug fixes
-  - Security patches
-  - Performance improvements
-  - New features
-
-• Maintenance:
-  - System checks
-  - Database optimization
-  - Cache clearing
-  - Log rotation
-  - Backup verification
-  - Security scans
-
-• Support:
-  - Update guides
-  - Release notes
-  - Migration help
-  - Technical support
-  - Training materials
-  - FAQ updates
-
-Would you like to know more about system updates?`
+    const greetingResponses = {
+        greeting: [
+            "👋 Hi! I'm your AI assistant. I can help you learn about Sandip's expertise in enterprise solutions, technical skills, and recent projects. How can I assist you today?",
+            "👋 Hello! I'm here to tell you about Sandip's work as a Full Stack .NET Developer. Would you like to know about his projects, skills, or experience?",
+            "👋 Hey there! I'm your guide to Sandip's portfolio. I can tell you about his Hospital Management System, Gym Management System, School Management System, and more. What interests you?",
+            "👋 Greetings! I'm your AI assistant, ready to share information about Sandip's expertise in building enterprise applications. What would you like to know?",
+            "👋 Hi! I'm here to help you explore Sandip's work. He's a Full Stack .NET Developer who builds amazing enterprise solutions. What would you like to learn about?"
+        ],
+        farewell: [
+            "👋 Goodbye! Feel free to come back if you have more questions about Sandip's work!",
+            "👋 See you later! Don't hesitate to return if you want to learn more about Sandip's projects!",
+            "👋 Take care! Come back anytime to explore more about Sandip's expertise!",
+            "👋 Bye for now! Remember, I'm here whenever you want to learn more about Sandip's work!",
+            "👋 Have a great day! Feel free to return if you have more questions about Sandip's portfolio!"
+        ],
+        identity: [
+            "🤖 I'm an AI assistant created to help you learn about Sandip's work as a Full Stack .NET Developer. I can tell you about his projects, skills, and experience!",
+            "🤖 I'm your guide to Sandip's portfolio! I can share details about his enterprise applications, technical expertise, and project implementations.",
+            "🤖 I'm an AI assistant here to showcase Sandip's work. I specialize in explaining his projects, technical skills, and professional achievements.",
+            "🤖 I'm your AI companion, ready to tell you all about Sandip's work as a Full Stack .NET Developer. What would you like to know?",
+            "🤖 I'm here to help you explore Sandip's portfolio! I can tell you about his projects, skills, and experience in enterprise development."
+        ],
+        howAreYou: [
+            "😊 I'm doing great, thanks for asking! I'm here to help you learn about Sandip's work. What would you like to know?",
+            "😊 I'm wonderful! Ready to tell you all about Sandip's projects and expertise. How can I help you today?",
+            "😊 I'm excellent! I'd love to share information about Sandip's work with you. What interests you?",
+            "😊 I'm fantastic! I'm here to help you explore Sandip's portfolio. What would you like to learn about?",
+            "😊 I'm doing great! I'm excited to tell you about Sandip's work as a Full Stack .NET Developer. What would you like to know?"
+        ],
+        contact: `👋 I'd love to connect with you! Here's how you can reach out:
+
+• 📧 Email: sandip2446@gmail.com
+• 💼 LinkedIn: linkedin.com/in/sandip2446
+• 💻 GitHub: github.com/sandip2446
+• 📍 Location: Welland, ON, Canada
+
+I'm available for:
+• Full-time positions
+• Remote opportunities
+• Contract work
+• Immediate start
+
+Feel free to reach out through any of these channels. I'm always excited to discuss new opportunities and collaborations! 😊`
     };
 
-    return responses[topic] || "I'm not sure about that topic. Would you like to know about my skills, projects, or experience?";
+    // Handle greetings and farewells
+    if (topic === 'greeting') {
+        return greetingResponses.greeting[Math.floor(Math.random() * greetingResponses.greeting.length)];
+    }
+    if (topic === 'farewell') {
+        return greetingResponses.farewell[Math.floor(Math.random() * greetingResponses.farewell.length)];
+    }
+    if (topic === 'identity') {
+        return greetingResponses.identity[Math.floor(Math.random() * greetingResponses.identity.length)];
+    }
+    if (topic === 'howAreYou') {
+        return greetingResponses.howAreYou[Math.floor(Math.random() * greetingResponses.howAreYou.length)];
+    }
+    if (topic === 'contact') {
+        return greetingResponses.contact;
+    }
+
+    // Default response for unknown topics
+    return `I'd be happy to connect you with Sandip to discuss this further! Here's how you can reach out:
+
+• 📧 Email: sandip2446@gmail.com
+• 💼 LinkedIn: linkedin.com/in/sandip2446
+• 💻 GitHub: github.com/sandip2446
+• 📍 Location: Welland, ON, Canada
+
+He's available for:
+• Full-time positions
+• Remote opportunities
+• Contract work
+• Immediate start
+
+Feel free to reach out through any of these channels. He's always excited to discuss new opportunities and collaborations! 😊`;
 }
 
 function generateHowItWorksResponse(topic) {
@@ -2531,7 +1176,7 @@ Click any button below or ask me anything! 😊`;
         
         button.addEventListener('click', () => {
             const topic = option.type;
-            const userMessage = `Tell me about ${option.text.replace(/[^\w\s]/g, '')}`;
+            const userMessage = button.textContent.trim();
             
             // Add user message
             addMessage(userMessage, true);
@@ -2547,16 +1192,23 @@ Click any button below or ask me anything! 😊`;
                 // Check if it's a project-specific topic
                 if (['hospital', 'gym', 'school', 'crm', 'erp', 'pos'].includes(topic)) {
                     response = generateProjectResponse(topic);
+                } else if (topic === 'overview') {
+                    response = generateOverviewResponse();
+                } else if (topic === 'skills') {
+                    response = generateTechnicalSkillsResponse();
+                } else if (topic === 'projects') {
+                    response = generateRecentProjectsResponse();
                 } else {
                     response = generateTopicResponse(topic);
                 }
                 
                 // Add bot response
-                addMessage(response);
-                
-                // Show hints immediately after response
-                if (['hospital', 'gym', 'school', 'crm', 'erp', 'pos'].includes(topic)) {
-                    showFloatingHints(topic);
+                if (response) {
+                    addMessage(response);
+                    // Show hints immediately after response
+                    setTimeout(() => {
+                        showFloatingHints(topic);
+                    }, 500);
                 }
             }, 1000);
         });
@@ -2673,6 +1325,8 @@ Click any button below or ask me anything! 😊`;
 // Update the addMessage function to maintain conversation context
 function addMessage(message, isUser = false) {
     const chatContent = document.querySelector('.chat-content');
+    if (!chatContent) return;
+
     const messageDiv = document.createElement('div');
     messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
     
@@ -2693,11 +1347,15 @@ function addMessage(message, isUser = false) {
     
     // Update conversation context
     updateConversationContext(message, isUser);
-    
-    // Show floating hints for bot messages
+
+    // Show hints after bot responses, except for contact section
     if (!isUser) {
-        const topic = extractTopic(message);
-        setTimeout(() => showFloatingHints(topic), 1000);
+        const currentTopic = conversationState.context.currentTopic;
+        if (currentTopic && currentTopic !== 'contact') {
+            setTimeout(() => {
+                showFloatingHints(currentTopic);
+            }, 500);
+        }
     }
 }
 
@@ -2795,7 +1453,21 @@ function analyzeIntent(message) {
 function extractTopic(message) {
     message = message.toLowerCase().trim();
     
-    // Direct topic matches
+    // Greeting patterns
+    if (message.match(/^(hi|hello|hey|greetings|good (morning|afternoon|evening))$/i)) {
+        return 'greeting';
+    }
+    if (message.match(/^(bye|goodbye|see you|farewell|take care)$/i)) {
+        return 'farewell';
+    }
+    if (message.match(/^(who are you|what are you|what is your name|tell me about yourself)$/i)) {
+        return 'identity';
+    }
+    if (message.match(/^(how are you|how's it going|how do you do|what's up)$/i)) {
+        return 'howAreYou';
+    }
+
+    // Existing topic extraction logic
     if (message === 'crm') return 'crm';
     if (message === 'erp') return 'erp';
     if (message === 'gym') return 'gym';
@@ -2821,14 +1493,14 @@ function extractTopic(message) {
         if (message.includes('overview')) return 'overview';
     }
 
-    // Check for greetings
-    if (message.includes('hi') || message.includes('hello') || message.includes('hey')) {
-        return 'greeting';
+    // Contact-related patterns
+    if (message.match(/^(contact|connect|reach out|get in touch|email|linkedin|github)$/i)) {
+        return 'contact';
     }
-    
-    // Check for farewells
-    if (message.includes('bye') || message.includes('goodbye') || message.includes('see you')) {
-        return 'farewell';
+    if (message.includes('contact') || message.includes('connect') || message.includes('reach out') || 
+        message.includes('get in touch') || message.includes('email') || message.includes('linkedin') || 
+        message.includes('github')) {
+        return 'contact';
     }
 
     return null;
@@ -3060,6 +1732,644 @@ function extractTopicFromHistory() {
     return null;
 }
 
+// Define hints object
+const hints = {
+    overview: {
+        "Professional Profile": {
+            title: "Professional Profile",
+            questions: [
+                {
+                    text: "What's your current role and expertise?",
+                    response: "I'm a Full Stack .NET Developer with expertise in:\n• Enterprise application development\n• ASP.NET Core MVC & Web API\n• Entity Framework Core\n• SQL Server & SQLite\n• RESTful API Design\n• Modern frontend technologies"
+                },
+                {
+                    text: "What's your educational background?",
+                    response: "I'm currently pursuing:\n• Computer Programming Diploma at Niagara College\n• Expected graduation: 2025\n• Key coursework includes:\n  - ASP.NET Core Development\n  - Database Management Systems\n  - Web Development & Design\n  - Software Engineering Principles"
+                },
+                {
+                    text: "What are your key achievements?",
+                    response: "My key achievements include:\n• Developed 4 comprehensive management systems\n• Implemented Canadian AAA accessibility standards\n• Mastered full-stack development\n• Delivered complex projects with advanced features\n• Created reusable components and solutions"
+                }
+            ]
+        },
+        "Technical Expertise": {
+            title: "Technical Expertise",
+            questions: [
+                {
+                    text: "What are your core technical skills?",
+                    response: "My core technical skills include:\n• Backend: ASP.NET Core MVC, Entity Framework Core\n• Database: SQL Server, SQLite, Database Design\n• Frontend: HTML5, CSS3, JavaScript\n• Architecture: RESTful APIs, Microservices\n• Tools: Git, Visual Studio, Azure DevOps"
+                },
+                {
+                    text: "What development methodologies do you follow?",
+                    response: "I follow these methodologies:\n• Agile Development practices\n• Test-Driven Development (TDD)\n• Clean Code principles\n• SOLID principles\n• Continuous Integration/Deployment"
+                },
+                {
+                    text: "How do you handle project challenges?",
+                    response: "I approach challenges by:\n• Breaking down complex problems\n• Following best practices and patterns\n• Implementing robust error handling\n• Writing maintainable, documented code\n• Ensuring scalability and performance"
+                }
+            ]
+        },
+        "Career Goals": {
+            title: "Career Goals",
+            questions: [
+                {
+                    text: "What are your career objectives?",
+                    response: "My career objectives include:\n• Contributing to impactful enterprise solutions\n• Continuous learning and skill development\n• Taking on leadership opportunities\n• Building innovative applications\n• Making a positive impact in the tech industry"
+                },
+                {
+                    text: "What type of role are you seeking?",
+                    response: "I'm seeking roles that offer:\n• Full Stack development opportunities\n• Challenging technical problems\n• Collaborative team environment\n• Modern technology stack\n• Clear growth and learning path"
+                },
+                {
+                    text: "What makes you a strong candidate?",
+                    response: "My strengths include:\n• Strong problem-solving abilities\n• Excellent communication skills\n• Quick learning and adaptation\n• Focus on clean, maintainable code\n• Proven track record of successful projects"
+                }
+            ]
+        }
+    },
+    projects: {
+        "Portfolio Projects": {
+            title: "Portfolio Projects",
+            questions: [
+                {
+                    text: "What are your main projects?",
+                    response: "My main projects include:\n• Hospital Management System (2024)\n• Gym Management System (2023)\n• School Management System (2023)\n• Enterprise CRM System (2023)\n• POS System (2023)"
+                },
+                {
+                    text: "What technologies do you use?",
+                    response: "I use modern technologies including:\n• ASP.NET Core MVC\n• Entity Framework Core\n• SQL Server & SQLite\n• RESTful API Design\n• Real-time Updates with SignalR"
+                },
+                {
+                    text: "What makes your projects unique?",
+                    response: "My projects stand out with:\n• Canadian AAA accessibility standards\n• Automated workflows\n• Real-time analytics\n• Secure payment processing\n• Comprehensive reporting"
+                }
+            ]
+        },
+        "Technical Implementation": {
+            title: "Technical Implementation",
+            questions: [
+                {
+                    text: "How do you handle security?",
+                    response: "Security implementation includes:\n• Role-based access control\n• Data encryption\n• Secure authentication\n• Audit logging\n• Input validation"
+                },
+                {
+                    text: "What about database design?",
+                    response: "Database features include:\n• Complex entity relationships\n• Optimized queries\n• Data validation\n• Backup systems\n• Migration tools"
+                },
+                {
+                    text: "How do you handle scalability?",
+                    response: "Scalability features:\n• RESTful API architecture\n• Caching mechanisms\n• Load balancing\n• Database optimization\n• Modular design"
+                }
+            ]
+        },
+        "Business Impact": {
+            title: "Business Impact",
+            questions: [
+                {
+                    text: "What are the business benefits?",
+                    response: "Business benefits include:\n• Improved operational efficiency\n• Better decision making\n• Cost reduction\n• Enhanced customer service\n• Increased productivity"
+                },
+                {
+                    text: "How do you measure success?",
+                    response: "Success metrics include:\n• User adoption rates\n• Performance improvements\n• Cost savings\n• Customer satisfaction\n• System reliability"
+                },
+                {
+                    text: "What about future enhancements?",
+                    response: "Future enhancements include:\n• AI/ML integration\n• Mobile applications\n• Advanced analytics\n• Cloud migration\n• API expansion"
+                }
+            ]
+        }
+    },
+    hospital: {
+        "Patient Management": {
+            title: "Patient Management",
+            questions: [
+                {
+                    text: "How does the patient registration work?",
+                    response: "The patient registration system includes:\n• Digital patient registration with validation\n• Comprehensive medical history tracking\n• Automated appointment scheduling\n• Treatment and prescription records\n• Insurance information management"
+                },
+                {
+                    text: "What features are available for appointment management?",
+                    response: "The appointment management system includes:\n• Online booking portal\n• Automated email and SMS reminders\n• Doctor availability calendar\n• Waitlist management\n• Appointment rescheduling"
+                },
+                {
+                    text: "How are medical records handled?",
+                    response: "Medical records management includes:\n• Secure digital patient records\n• Prescription management\n• Test results and imaging tracking\n• Medical history documentation\n• Document version control"
+                }
+            ]
+        },
+        "Technical Implementation": {
+            title: "Technical Implementation",
+            questions: [
+                {
+                    text: "What technologies are used?",
+                    response: "The system is built with:\n• ASP.NET Core MVC Backend\n• Entity Framework Core\n• SQL Server Database\n• Real-time Updates with SignalR\n• Interactive Dashboard with Chart.js"
+                },
+                {
+                    text: "How is security implemented?",
+                    response: "Security features include:\n• Role-based access control\n• HIPAA compliance\n• Data encryption\n• Audit logging\n• AAA accessibility standards"
+                },
+                {
+                    text: "What about analytics and reporting?",
+                    response: "Analytics features include:\n• Real-time patient statistics\n• Treatment outcome tracking\n• Resource utilization metrics\n• Performance analytics\n• Custom report generation"
+                }
+            ]
+        }
+    },
+    gym: {
+        "Member Management": {
+            title: "Member Management",
+            questions: [
+                {
+                    text: "How does member registration work?",
+                    response: "The member registration system includes:\n• Digital member registration with validation\n• Membership type selection (Basic, Premium, VIP)\n• Fitness goal tracking\n• Health metrics monitoring\n• Emergency contact information"
+                },
+                {
+                    text: "What features are available for class management?",
+                    response: "Class management features include:\n• Class scheduling and booking\n• Instructor assignment\n• Capacity management\n• Waitlist handling\n• Class type categorization"
+                },
+                {
+                    text: "How is attendance tracked?",
+                    response: "Attendance tracking includes:\n• Digital check-in system\n• Class participation records\n• Member attendance history\n• Automated notifications\n• Attendance analytics"
+                }
+            ]
+        },
+        "Technical Implementation": {
+            title: "Technical Implementation",
+            questions: [
+                {
+                    text: "What technologies are used?",
+                    response: "The system is built with:\n• ASP.NET Core MVC Backend\n• SQLite Database\n• Entity Framework Core\n• Payment Gateway Integration\n• Automated Scheduling System"
+                },
+                {
+                    text: "How is payment processing handled?",
+                    response: "Payment features include:\n• Secure payment gateway integration\n• Multiple payment method support\n• Automated billing system\n• Membership renewal handling\n• Payment history tracking"
+                },
+                {
+                    text: "What about progress tracking?",
+                    response: "Progress tracking features:\n• Fitness goal monitoring\n• Performance metrics\n• Achievement tracking\n• Progress reports\n• Member feedback system"
+                }
+            ]
+        }
+    },
+    school: {
+        "Student Management": {
+            title: "Student Management",
+            questions: [
+                {
+                    text: "How does student registration work?",
+                    response: "Student registration includes:\n• Digital student enrollment\n• Academic record management\n• Course registration\n• Attendance tracking\n• Parent/guardian information"
+                },
+                {
+                    text: "What features are available for grade management?",
+                    response: "Grade management includes:\n• Automated grade calculation\n• Progress tracking\n• Report card generation\n• Academic performance analytics\n• Parent-teacher communication"
+                },
+                {
+                    text: "How is attendance handled?",
+                    response: "Attendance system includes:\n• Digital attendance tracking\n• Automated notifications\n• Absence reporting\n• Attendance analytics\n• Parent communication"
+                }
+            ]
+        },
+        "Technical Implementation": {
+            title: "Technical Implementation",
+            questions: [
+                {
+                    text: "What technologies are used?",
+                    response: "The system uses:\n• ASP.NET Core MVC Backend\n• Entity Framework Core\n• SQL Server Database\n• Automated Grade Calculation\n• Parent Communication Portal"
+                },
+                {
+                    text: "How is communication handled?",
+                    response: "Communication features include:\n• Parent-teacher messaging\n• Automated notifications\n• Announcement system\n• Document sharing\n• Calendar integration"
+                },
+                {
+                    text: "What about academic reporting?",
+                    response: "Academic reporting includes:\n• Performance analytics\n• Custom report generation\n• Progress tracking\n• Achievement monitoring\n• Statistical analysis"
+                }
+            ]
+        }
+    },
+    erp: {
+        "Business Management": {
+            title: "Business Management",
+            questions: [
+                {
+                    text: "What inventory features are available?",
+                    response: "Inventory management includes:\n• Real-time stock tracking\n• Multi-location inventory\n• Automated reordering\n• Batch and serial tracking\n• Stock valuation"
+                },
+                {
+                    text: "How is financial management handled?",
+                    response: "Financial management includes:\n• General ledger\n• Accounts payable/receivable\n• Financial reporting\n• Budget management\n• Tax compliance"
+                },
+                {
+                    text: "What HR features are included?",
+                    response: "HR features include:\n• Employee management\n• Payroll processing\n• Time tracking\n• Benefits administration\n• Performance management"
+                }
+            ]
+        },
+        "Technical Features": {
+            title: "Technical Features",
+            questions: [
+                {
+                    text: "What technologies are used?",
+                    response: "The system uses:\n• ASP.NET Core MVC backend\n• Entity Framework Core\n• SQL Server Database\n• RESTful API Design\n• Role-based Security"
+                },
+                {
+                    text: "How is data managed?",
+                    response: "Data management includes:\n• Real-time reporting\n• Automated workflows\n• Data validation\n• Backup and recovery\n• Data migration tools"
+                },
+                {
+                    text: "What about business intelligence?",
+                    response: "Business intelligence features:\n• Real-time dashboards\n• Custom reporting\n• Data analytics\n• Performance metrics\n• Trend analysis"
+                }
+            ]
+        }
+    },
+    crm: {
+        "Customer Management": {
+            title: "Customer Management",
+            questions: [
+                {
+                    text: "How is lead management handled?",
+                    response: "Lead management includes:\n• Lead tracking and scoring\n• Automated lead assignment\n• Lead status monitoring\n• Conversion tracking\n• Lead source analytics"
+                },
+                {
+                    text: "What sales features are available?",
+                    response: "Sales features include:\n• Visual pipeline management\n• Deal tracking and forecasting\n• Sales stage automation\n• Performance analytics\n• Revenue forecasting"
+                },
+                {
+                    text: "How are customer interactions tracked?",
+                    response: "Customer interaction tracking includes:\n• Customer profile management\n• Interaction history\n• Document management\n• Communication tracking\n• Customer segmentation"
+                }
+            ]
+        },
+        "Technical Implementation": {
+            title: "Technical Implementation",
+            questions: [
+                {
+                    text: "What technologies are used?",
+                    response: "The system uses:\n• ASP.NET Core MVC Backend\n• Entity Framework Core\n• SQL Server Database\n• RESTful API Design\n• Real-time Updates"
+                },
+                {
+                    text: "How is automation implemented?",
+                    response: "Automation features include:\n• Automated follow-ups\n• Task scheduling\n• Email notifications\n• Workflow automation\n• Calendar integration"
+                },
+                {
+                    text: "What about reporting and analytics?",
+                    response: "Reporting features include:\n• Sales performance metrics\n• Customer behavior analysis\n• Conversion rate tracking\n• Custom report generation\n• Real-time dashboards"
+                }
+            ]
+        }
+    },
+    pos: {
+        "Sales Management": {
+            title: "Sales Management",
+            questions: [
+                {
+                    text: "How are sales processed?",
+                    response: "Sales processing includes:\n• Quick item scanning and lookup\n• Multiple payment method handling\n• Discount and promotion application\n• Receipt generation\n• Returns and refunds processing"
+                },
+                {
+                    text: "What inventory features are available?",
+                    response: "Inventory features include:\n• Real-time stock updates\n• Low stock alerts\n• Automatic reordering\n• Stock movement tracking\n• Price updates"
+                },
+                {
+                    text: "How is customer management handled?",
+                    response: "Customer management includes:\n• Customer profile creation\n• Purchase history tracking\n• Loyalty program management\n• Customer feedback collection\n• Marketing preferences"
+                }
+            ]
+        },
+        "Technical Features": {
+            title: "Technical Features",
+            questions: [
+                {
+                    text: "What technologies are used?",
+                    response: "The system uses:\n• ASP.NET Core MVC backend\n• SQL Server database\n• Entity Framework Core\n• Payment Gateway Integration\n• Barcode Scanner Support"
+                },
+                {
+                    text: "How is offline capability handled?",
+                    response: "Offline features include:\n• Local data storage\n• Transaction queuing\n• Automatic synchronization\n• Conflict resolution\n• Data integrity checks"
+                },
+                {
+                    text: "What about reporting and analytics?",
+                    response: "Reporting features include:\n• Sales performance tracking\n• Inventory analytics\n• Customer insights\n• Custom report generation\n• Real-time dashboards"
+                }
+            ]
+        }
+    },
+    contact: {
+        "Job Opportunities": {
+            title: "Job Opportunities",
+            questions: [
+                {
+                    text: "What types of positions are you looking for?",
+                    response: "I'm open to various opportunities:\n• Full Stack .NET Developer roles\n• Enterprise Application Developer positions\n• Software Engineer opportunities\n• Technical Lead positions\n• Remote and on-site roles"
+                },
+                {
+                    text: "What are your salary expectations?",
+                    response: "I'm looking for competitive compensation:\n• Based on market rates for Full Stack .NET Developers\n• Commensurate with experience and role\n• Open to negotiation based on benefits and opportunities\n• Considering total compensation package"
+                },
+                {
+                    text: "What's your preferred work environment?",
+                    response: "I'm flexible with work arrangements:\n• Open to both remote and on-site positions\n• Prefer collaborative team environments\n• Looking for companies with growth opportunities\n• Interested in organizations with modern tech stacks"
+                }
+            ]
+        },
+        "Professional Background": {
+            title: "Professional Background",
+            questions: [
+                {
+                    text: "What's your current experience level?",
+                    response: "My experience includes:\n• Full Stack .NET Development\n• Enterprise application development\n• Multiple successful project implementations\n• Strong foundation in modern technologies\n• Proven track record of delivering solutions"
+                },
+                {
+                    text: "What are your key technical skills?",
+                    response: "My technical expertise includes:\n• ASP.NET Core MVC & Web API\n• Entity Framework Core\n• SQL Server & SQLite\n• RESTful API Design\n• Modern frontend technologies"
+                },
+                {
+                    text: "What makes you a strong candidate?",
+                    response: "My strengths include:\n• Proven project success record\n• Strong problem-solving abilities\n• Excellent communication skills\n• Quick learning and adaptation\n• Focus on clean, maintainable code"
+                }
+            ]
+        },
+        "Career Goals": {
+            title: "Career Goals",
+            questions: [
+                {
+                    text: "What are your career objectives?",
+                    response: "My career goals include:\n• Contributing to impactful projects\n• Continuous learning and growth\n• Taking on leadership opportunities\n• Building innovative solutions\n• Making a positive impact"
+                },
+                {
+                    text: "What type of company are you looking for?",
+                    response: "I'm interested in companies that:\n• Value innovation and quality\n• Offer growth opportunities\n• Have a strong technical culture\n• Focus on employee development\n• Build meaningful products"
+                },
+                {
+                    text: "What's your ideal role?",
+                    response: "My ideal role would involve:\n• Full Stack development opportunities\n• Challenging technical problems\n• Collaborative team environment\n• Modern technology stack\n• Clear growth path"
+                }
+            ]
+        }
+    }
+};
+
+// Update the showFloatingHints function
+function showFloatingHints(topic) {
+    if (!topic) return;
+
+    // Remove any existing hints
+    const existingHints = document.querySelector('.floating-hints');
+    if (existingHints) {
+        existingHints.remove();
+    }
+
+    const chatContent = document.querySelector('.chat-content');
+    if (!chatContent) return;
+
+    // Create hints container
+    const hintContainer = document.createElement('div');
+    hintContainer.className = 'floating-hints';
+
+    // Create hint content
+    const hintContent = document.createElement('div');
+    hintContent.className = 'hint-content';
+
+    // Get hints for the current topic
+    const topicHints = hints[topic];
+    if (!topicHints) return;
+
+    // Add each category
+    Object.entries(topicHints).forEach(([category, data]) => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'hint-category';
+
+        // Add category title
+        const categoryTitle = document.createElement('h4');
+        categoryTitle.className = 'hint-category-title';
+        categoryTitle.textContent = data.title;
+        categoryDiv.appendChild(categoryTitle);
+
+        // Add questions
+        const questionList = document.createElement('ul');
+        questionList.className = 'hint-list';
+        data.questions.forEach(question => {
+            const listItem = document.createElement('li');
+            listItem.className = 'hint-item';
+            listItem.textContent = question.text;
+            listItem.addEventListener('click', () => {
+                addMessage(question.response);
+                setTimeout(() => showFloatingHints(topic), 1000);
+            });
+            questionList.appendChild(listItem);
+        });
+        categoryDiv.appendChild(questionList);
+        hintContent.appendChild(categoryDiv);
+    });
+
+    hintContainer.appendChild(hintContent);
+    chatContent.appendChild(hintContainer);
+
+    // Auto-hide hints after 30 seconds
+    setTimeout(() => {
+        hintContainer.classList.add('fade-out');
+        setTimeout(() => hintContainer.remove(), 300);
+    }, 30000);
+}
+
+// Add CSS for floating hints
+const hintStyle = document.createElement('style');
+hintStyle.textContent = `
+    .floating-hints {
+        position: relative;
+        margin: 10px 0;
+        animation: slideIn 0.5s ease-out;
+        background: #f8fafc;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .hint-content {
+        background: rgba(37, 99, 235, 0.1);
+        border-left: 4px solid #2563eb;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        color: #1f2937;
+    }
+
+    .hint-category {
+        margin-bottom: 15px;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .hint-category-title {
+        color: #2563eb;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .hint-category-title::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 16px;
+        background: #2563eb;
+        border-radius: 2px;
+    }
+
+    .hint-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hint-item {
+        margin: 8px 0;
+        padding: 8px 12px;
+        background: white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .hint-item::before {
+        content: '💡';
+        font-size: 1.1em;
+    }
+
+    .hint-item:hover {
+        background: #f1f5f9;
+        transform: translateX(5px);
+        border-color: #2563eb;
+        color: #2563eb;
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+    }
+
+    .floating-hints.fade-out {
+        animation: fadeOut 0.5s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .floating-hints {
+            margin: 8px 0;
+            padding: 12px;
+        }
+
+        .hint-content {
+            padding: 10px 14px;
+        }
+
+        .hint-item {
+            padding: 6px 10px;
+            font-size: 0.9rem;
+        }
+    }
+`;
+document.head.appendChild(hintStyle);
+
+// Update the showFloatingHints function to include animation for contact hints
+function showFloatingHints(topic) {
+    if (!topic) return;
+
+    // Remove any existing hints
+    const existingHints = document.querySelector('.floating-hints');
+    if (existingHints) {
+        existingHints.remove();
+    }
+
+    const chatContent = document.querySelector('.chat-content');
+    if (!chatContent) return;
+
+    // Create hints container
+    const hintContainer = document.createElement('div');
+    hintContainer.className = 'floating-hints';
+
+    // Create hint content
+    const hintContent = document.createElement('div');
+    hintContent.className = 'hint-content';
+
+    // Get hints for the current topic
+    const topicHints = hints[topic];
+    if (!topicHints) return;
+
+    // Add each category with animation delay
+    Object.entries(topicHints).forEach(([category, data], index) => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'hint-category';
+        categoryDiv.style.animationDelay = `${index * 0.1}s`;
+
+        // Add category title
+        const categoryTitle = document.createElement('h4');
+        categoryTitle.className = 'hint-category-title';
+        categoryTitle.textContent = data.title;
+        categoryDiv.appendChild(categoryTitle);
+
+        // Add questions
+        const questionList = document.createElement('ul');
+        questionList.className = 'hint-list';
+        data.questions.forEach(question => {
+            const listItem = document.createElement('li');
+            listItem.className = 'hint-item';
+            listItem.textContent = question.text;
+            listItem.addEventListener('click', () => {
+                addMessage(question.response);
+                setTimeout(() => showFloatingHints(topic), 1000);
+            });
+            questionList.appendChild(listItem);
+        });
+        categoryDiv.appendChild(questionList);
+        hintContent.appendChild(categoryDiv);
+    });
+
+    hintContainer.appendChild(hintContent);
+    chatContent.appendChild(hintContainer);
+
+    // Auto-hide hints after 30 seconds
+    setTimeout(() => {
+        hintContainer.classList.add('fade-out');
+        setTimeout(() => hintContainer.remove(), 300);
+    }, 30000);
+}
+
 // Add event listeners for expertise buttons
 document.querySelectorAll('.expertise-btn').forEach(button => {
     button.addEventListener('click', () => {
@@ -3087,319 +2397,65 @@ document.querySelectorAll('.expertise-btn').forEach(button => {
             // Add bot response
             addMessage(response);
             
-            // Show hints immediately after response
-            showFloatingHints(topic);
+            // Show hints immediately after response, except for contact section
+            if (topic !== 'contact') {
+                setTimeout(() => {
+                    showFloatingHints(topic);
+                }, 500);
+            }
         }, 1000);
     });
 });
 
-// Update the showFloatingHints function to ensure hints are displayed
-function showFloatingHints(topic) {
-    const hints = {
-        project: {
-            hospital: [
-                "💡 Hospital System Chat Hints:",
-                "• Tell me about patient registration",
-                "• How does appointment scheduling work?",
-                "• Explain medical records management",
-                "• Show billing system features",
-                "• Describe staff management",
-                "• What analytics are available?",
-                "• How does emergency response work?",
-                "• Explain pharmacy management",
-                "• How are lab results tracked?",
-                "• Describe treatment planning"
-            ],
-            gym: [
-                "💡 Gym System Chat Hints:",
-                "• Tell me about member portal",
-                "• How does class scheduling work?",
-                "• Explain payment processing",
-                "• Show attendance tracking",
-                "• Describe equipment management",
-                "• What membership plans exist?",
-                "• How is trainer management handled?",
-                "• Explain progress tracking",
-                "• How does facility booking work?",
-                "• Describe member communication"
-            ],
-            school: [
-                "💡 School System Chat Hints:",
-                "• Tell me about student management",
-                "• How does grade tracking work?",
-                "• Explain attendance system",
-                "• Show parent-teacher portal",
-                "• Describe course scheduling",
-                "• What academic tracking exists?",
-                "• How is fee management handled?",
-                "• Explain library management",
-                "• How does transportation work?",
-                "• Describe event management"
-            ],
-            crm: [
-                "💡 CRM System Chat Hints:",
-                "• Tell me about lead management",
-                "• How does sales pipeline work?",
-                "• Explain customer profiles",
-                "• Show document management",
-                "• Describe communication tools",
-                "• What analytics are available?",
-                "• How is task tracking handled?",
-                "• Explain marketing campaigns",
-                "• How does customer service work?",
-                "• Describe integration features"
-            ],
-            erp: [
-                "💡 ERP System Chat Hints:",
-                "• Tell me about inventory management",
-                "• How does financial tracking work?",
-                "• Explain HR management",
-                "• Show document handling",
-                "• Describe business intelligence",
-                "• What supply chain features exist?",
-                "• How is manufacturing managed?",
-                "• Explain project management",
-                "• How does quality control work?",
-                "• Describe compliance features"
-            ],
-            pos: [
-                "💡 POS System Chat Hints:",
-                "• Tell me about sales processing",
-                "• How does inventory tracking work?",
-                "• Explain customer management",
-                "• Show payment processing",
-                "• Describe barcode scanning",
-                "• What receipt features exist?",
-                "• How are sales analyzed?",
-                "• Explain employee management",
-                "• How does discount system work?",
-                "• Describe offline capabilities"
-            ]
+// Add a separate button for showing contact hints
+const contactButton = document.querySelector('.expertise-btn[data-type="contact"]');
+if (contactButton) {
+    contactButton.addEventListener('click', () => {
+        // Add a hint toggle button after the contact message
+        const hintToggle = document.createElement('button');
+        hintToggle.className = 'hint-toggle-btn';
+        hintToggle.innerHTML = '<i class="fas fa-lightbulb"></i> Show Job Opportunities';
+        hintToggle.addEventListener('click', () => {
+            showFloatingHints('contact');
+            hintToggle.remove();
+        });
+        
+        // Add the button to the chat content
+        const chatContent = document.querySelector('.chat-content');
+        if (chatContent) {
+            chatContent.appendChild(hintToggle);
         }
-    };
+    });
+}
 
-    // Get appropriate hints based on topic
-    const selectedHints = hints.project?.[topic] || null;
-
-    // Only show hints if we have relevant ones
-    if (!selectedHints) return;
-
-    // Remove any existing hints
-    const existingHints = document.querySelector('.floating-hints');
-    if (existingHints) {
-        existingHints.remove();
+// Add CSS for the hint toggle button
+const hintToggleStyle = document.createElement('style');
+hintToggleStyle.textContent = `
+    .hint-toggle-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 10px auto;
+        padding: 8px 16px;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        color: #4b5563;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
 
-    // Create hint container
-    const hintContainer = document.createElement('div');
-    hintContainer.className = 'floating-hints';
-    
-    // Create hint content
-    const hintContent = document.createElement('div');
-    hintContent.className = 'hint-content';
-    
-    // Add header
-    const header = document.createElement('div');
-    header.className = 'hint-header';
-    header.innerHTML = `
-        <span class="hint-title">💡 Suggested Questions</span>
-        <button class="hint-close-btn" title="Close hints">
-            <i class="fas fa-times"></i>
-        </button>
-    `;
-    hintContent.appendChild(header);
-    
-    // Add hint items
-    const hintList = document.createElement('div');
-    hintList.className = 'hint-list';
-    
-    selectedHints.forEach(hint => {
-        const hintElement = document.createElement('div');
-        hintElement.className = 'hint-item';
-        hintElement.innerHTML = `
-            <i class="fas fa-chevron-right"></i>
-            <span>${hint}</span>
-        `;
-        
-        // Make hints clickable
-        hintElement.onclick = () => {
-            const input = document.querySelector('.chat-input');
-            const hintText = hint.replace('•', '').trim();
-            input.value = hintText;
-            input.focus();
-            hintContainer.classList.add('fade-out');
-            setTimeout(() => hintContainer.remove(), 500);
-        };
-        
-        hintList.appendChild(hintElement);
-    });
-    
-    hintContent.appendChild(hintList);
-    hintContainer.appendChild(hintContent);
-    
-    // Add close button functionality
-    const closeButton = hintContent.querySelector('.hint-close-btn');
-    closeButton.onclick = () => {
-        hintContainer.classList.add('fade-out');
-        setTimeout(() => hintContainer.remove(), 500);
-    };
-    
-    // Add to chat content
-    document.querySelector('.chat-content').appendChild(hintContainer);
+    .hint-toggle-btn:hover {
+        background: #f1f5f9;
+        border-color: #2563eb;
+        color: #2563eb;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+    }
 
-    // Add new CSS styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .floating-hints {
-            position: relative;
-            margin: 15px 0;
-            animation: slideIn 0.5s ease-out;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-            max-width: 100%;
-            overflow: hidden;
-        }
-
-        .hint-content {
-            padding: 0;
-        }
-
-        .hint-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 16px;
-            background: #f8fafc;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .hint-title {
-            font-weight: 600;
-            color: #1f2937;
-            font-size: 1rem;
-        }
-
-        .hint-close-btn {
-            background: none;
-            border: none;
-            color: #6b7280;
-            cursor: pointer;
-            padding: 4px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-
-        .hint-close-btn:hover {
-            background: #e5e7eb;
-            color: #1f2937;
-        }
-
-        .hint-list {
-            padding: 8px 0;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .hint-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #4b5563;
-        }
-
-        .hint-item:hover {
-            background: #f3f4f6;
-            color: #2563eb;
-        }
-
-        .hint-item i {
-            font-size: 0.8rem;
-            color: #9ca3af;
-            transition: transform 0.2s ease;
-        }
-
-        .hint-item:hover i {
-            transform: translateX(3px);
-            color: #2563eb;
-        }
-
-        .hint-item span {
-            flex: 1;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .floating-hints.fade-out {
-            animation: fadeOut 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// Update the getMainCategory function to handle all topics
-function getMainCategory(topic) {
-    const projectTopics = ['hospital', 'gym', 'school', 'crm', 'erp', 'pos'];
-    const systemTopics = ['features', 'benefits', 'technical'];
-    const skillsTopics = ['skills', 'expertise', 'projects', 'experience'];
-    const featureTopics = ['management', 'security', 'integration'];
-    
-    if (projectTopics.includes(topic.toLowerCase())) return 'project';
-    if (systemTopics.includes(topic.toLowerCase())) return 'system';
-    if (skillsTopics.includes(topic.toLowerCase())) return 'skills';
-    if (featureTopics.includes(topic.toLowerCase())) return 'feature';
-    if (topic.toLowerCase() === 'overview') return 'overview';
-    if (topic.toLowerCase() === 'contact') return 'contact';
-    return 'default';
-}
-
-// Helper function to extract sub-topic from the conversation
-function extractSubTopic(topic) {
-    const topicMap = {
-        // Project topics
-        'hospital': 'hospital',
-        'gym': 'gym',
-        'school': 'school',
-        'crm': 'crm',
-        'erp': 'erp',
-        'pos': 'pos',
-        // System topics
-        'features': 'features',
-        'benefits': 'benefits',
-        'technical': 'technical',
-        // Skills topics
-        'skills': 'technical',
-        'expertise': 'technical',
-        'projects': 'projects',
-        'experience': 'experience',
-        'management': 'management',
-        'security': 'security',
-        'integration': 'integration'
-    };
-    
-    return topicMap[topic.toLowerCase()] || 'default';
-}
+    .hint-toggle-btn i {
+        color: #2563eb;
+    }
+`;
+document.head.appendChild(hintToggleStyle);
